@@ -31,6 +31,7 @@ class RegisLoginController extends Controller
             if($user->is_email_verified == 1){
                 return redirect()->intended('/');
             }else{
+                $request->session()->flush();
                 Auth::logout();
                 return redirect("/login")->withSuccess('Oops! You need to verified your email first');
             }
@@ -103,6 +104,6 @@ class RegisLoginController extends Controller
 
             }
         }
-        return redirect('/login')->with('message', $message);
+        return redirect('/login')->withSuccess($message);
     }
 }
