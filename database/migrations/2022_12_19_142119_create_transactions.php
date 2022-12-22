@@ -13,9 +13,14 @@ return new class extends Migration
       $table->foreignId('user_id')->constrained()->onDelete('cascade');
       $table->foreignId('hotel_id')->constrained()->onDelete('cascade');
       $table->foreignId('status_id')->constrained()->onDelete('cascade');
-      $table->date('transaction_date');
-      $table->date('checkin_date');
-      $table->date('checkout_date');
+      $table->dateTime('transaction_date');
+      $table->date('checkin_date')->nullable();
+      $table->date('checkout_date')->nullable();
+      $table->string('name')->nullable();
+      $table->string('identity_number')->nullable();
+      $table->string('phone_number')->nullable();
+      $table->integer('total_adult');
+      $table->integer('total_children');
       $table->timestamps();
     });
   }

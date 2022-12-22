@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingPageController;
 use App\Http\Controllers\RegisLoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+  return view('index');
 });
 
 Route::get('/login', [RegisLoginController::class, 'index'])->name('login')->middleware('guest');
@@ -26,3 +27,5 @@ Route::post('/logout', [RegisLoginController::class, 'logout'])->middleware('aut
 
 Route::get('dashboard', [RegisLoginController::class, 'dashboard'])->middleware(['auth', 'is_verify_email']);
 Route::get('account/verify/{token}', [RegisLoginController::class, 'verifyAccount']);
+
+Route::get('/booking', [BookingPageController::class, 'create']);
