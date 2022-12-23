@@ -5,16 +5,21 @@
 @endsection
 
 @section('content')
-   <div class="bg-white d-flex flex-column align-items-center p-5">
-      <div class="text-white bg-dark p-5 border-dark" style="border-radius: 50px">
+   <div class="d-flex justify-content-between align-items-center p-5" >
+      <div>
+         <div style="width: 700px">
+             <h4>Hello, Welcome to BoboPlace Registration page!</h4>
+         </div>
+         <div>
+            <img src="/images/regis_login/regis.png" alt="" style="width: 650px">
+         </div>
+     </div>
+      <div class="text-white ps-4 pe-4 pt-3 pb-3 border-dark" style="background-color: rgba(117, 140, 131, 1);border-radius: 10px; width: 600px;">
          @if (session('success'))
             <h1>{{ session('success') }}</h1>
          @endif
          <form action="/regValid" method="POST">
             @csrf
-            <div class="d-flex">
-               <h5>Hello, Welcome to BoboPlace Registration page!</h5>
-            </div>
             <div class="">
                <label for="">Username</label>
                <input class="form-control" type="text" id="username" name="username" placeholder="Enter your username">
@@ -64,10 +69,10 @@
                </div>
             @enderror
             <br>
-            <button class="btn btn-success btn-l btn-block" type="submit">Register</button>
+            <button class="btn btn-warning form-control" type="submit"><b>Register</b></button>
          </form>
          <div class="text-white">Already have an account? <a href="{{ url('/login') }}"
-               class="text-success text-decoration-none">Login now!</a></div>
+               class="text-warning text-decoration-none">Login now!</a></div>
       </div>
    </div>
 @endsection
