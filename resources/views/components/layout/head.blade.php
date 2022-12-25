@@ -12,9 +12,9 @@
    <link href="{{ asset('css/tiny-slider.css') }}" rel="stylesheet">
    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
    <title>Boboplace | @yield('title')</title>
-   <script src="js/bootstrap.bundle.min.js" defer></script>
-   <script src="js/tiny-slider.js" defer></script>
-   <script src="js/custom.js" defer></script>
+   <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
+   <script src="{{ asset('js/tiny-slider.js') }}" defer></script>
+   <script src="{{ asset('js/custom.js') }}" defer></script>
    <script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js" defer></script>
    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>

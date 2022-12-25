@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return view('index');
+   return view('index');
 });
 
 Route::get('/login', [RegisLoginController::class, 'index'])->name('login')->middleware('guest');
@@ -28,4 +28,7 @@ Route::post('/logout', [RegisLoginController::class, 'logout'])->middleware('aut
 Route::get('dashboard', [RegisLoginController::class, 'dashboard'])->middleware(['auth', 'is_verify_email']);
 Route::get('account/verify/{token}', [RegisLoginController::class, 'verifyAccount']);
 
-Route::get('/booking', [BookingPageController::class, 'create']);
+Route::controller(BookingPageController::class)->name('booking.')->group(function () {
+   Route::get('/booking/{transaction}', 'edit')->name('edit');
+   Route::put('/booking/{transaction}', 'update')->name('update');
+});
