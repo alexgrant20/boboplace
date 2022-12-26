@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\City;
 use App\Models\Facility;
 use App\Models\Hotel;
+use App\Models\PaymentType;
 use App\Models\Role;
 use App\Models\Status;
 use App\Models\Transaction;
@@ -59,6 +60,14 @@ class DatabaseSeeder extends Seeder
       Facility::create(['name' => 'toilet']);
       Facility::create(['name' => 'window']);
       Facility::create(['name' => 'panorama-view']);
+
+      PaymentType::create([
+         'name' => 'ovo'
+      ]);
+
+      PaymentType::create([
+         'name' => 'dana'
+      ]);
 
       Transaction::create([
          'user_id' => 1,

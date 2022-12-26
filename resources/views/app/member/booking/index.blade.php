@@ -2,6 +2,13 @@
 
 @section('title', 'Booking Page')
 
+@php
+   $price = $transaction->hotel->price;
+   $tax = $price * 0.1;
+   
+   $totalPrice = $price + $tax;
+@endphp
+
 @section('content')
    <div class="bs-stepper">
       <div class="bs-stepper-header" role="tablist">
@@ -84,12 +91,6 @@
                            </div>
                         </div>
                      </div>
-                     @php
-                        $price = $transaction->hotel->price;
-                        $tax = $price * 0.1;
-
-                        $totalPrice = $price + $tax;
-                     @endphp
                      <div class="accordion" id="book-price-accordion">
                         <div class="accordion-item">
                            <h2 class="accordion-header" id="book-heading">
@@ -268,7 +269,7 @@
                               <div class="d-flex align-items-center justify-content-between">
                                  <span class="fs-6 text-dark fw-bold me-3">Total Price</span>
                                  <span>
-                                    Rp. 200.000
+                                    Rp. {{ number_format($totalPrice, 0, ',', '.') }}
                                  </span>
                               </div>
                            </button>
@@ -278,12 +279,12 @@
                            <div class="accordion-body">
                               <div class="d-flex align-items-center justify-content-between mb-4">
                                  <span class="fs-6 text-dark fw-bold me-3">Hotel Price</span>
-                                 <span>Rp. 190.000</span>
+                                 <span> Rp. {{ number_format($price, 0, ',', '.') }}</span>
                               </div>
                               <div class="d-flex align-items-center justify-content-between">
                                  <span class="fs-6 text-dark fw-bold me-3">Fee</span>
                                  <span>
-                                    Rp. 10.000
+                                    Rp. {{ number_format($tax, 0, ',', '.') }}
                                  </span>
                               </div>
                            </div>
@@ -291,7 +292,7 @@
                      </div>
                   </div>
                   <div class="mt-5 text-end">
-                     <button class="btn btn-success next-submit-form">Submit</button>
+                     <button class="btn btn-success next-submit-form" next-step="true">Submit</button>
                   </div>
                </div>
 
@@ -302,16 +303,16 @@
                      </div>
                      <div class="card-body">
                         <div class="mb-3">
-                           <div class="">Full Name</div>
-                           <div class="fullName">Steven Grant</div>
+                           <div>Full Name</div>
+                           <div class="name"></div>
                         </div>
                         <div class="mb-3">
-                           <div class="">Phone Number</div>
-                           <div class="phoneNumber">6287874033411</div>
+                           <div>Phone Number</div>
+                           <div class="phone_number"></div>
                         </div>
                         <div class="mb-3">
-                           <div class="">Email</div>
-                           <div class="email">alex@yahoo.alex</div>
+                           <div>Email</div>
+                           <div class="email"></div>
                         </div>
                      </div>
                   </div>
@@ -321,17 +322,17 @@
          <div id="payment-part" class="content" role="tabpanel" aria-labelledby="payment-part-trigger">
             <h2 class="fs-5 text-primary text-uppercase mb-5">Payment</h2>
 
-            <form method="POST" class="d-flex flex-column">
+            <form method="POST" class="d-flex flex-column" id="payment-form">
 
                <div class="d-flex gap-2 align-items-center mb-4">
-                  <input type="radio" id="ovo" name="payment_type">
+                  <input type="radio" id="ovo" name="payment_type" value="ovo">
                   <img
                      src="https://1.bp.blogspot.com/-Iq0Ztu117_8/XzNYaM4ABdI/AAAAAAAAHA0/MabT7B02ErIzty8g26JvnC6cPeBZtATNgCLcBGAsYHQ/s1000/logo-ovo.png"
                      width="200px" alt="" style="aspect-ratio: 2/1">
                </div>
 
                <div class="d-flex gap-2 align-items-center mb-4">
-                  <input type="radio" id="dana" name="payment_type">
+                  <input type="radio" id="dana" name="payment_type" value="dana">
                   <img src="https://i.pinimg.com/originals/2b/1f/11/2b1f11dec29fe28b5137b46fffa0b25f.png" width="200px"
                      alt="" style="aspect-ratio: 2/1.3;">
                </div>
@@ -351,25 +352,51 @@
       $(function() {
          $('.daterange').daterangepicker();
 
-         const stepper = new Stepper($('.bs-stepper')[0])
+         const stepperEl = $('.bs-stepper');
+         const stepper = new Stepper(stepperEl[0])
 
-         $('#book-form').on('submit', function(e) {
+         $('#book-form').on('submit', async function(e) {
             const formPayload = $(this).serialize();
 
-            $.ajax('{{ route('booking.update', $transaction->id) }}', {
+            const response = await $.ajax('{{ route('booking.update', $transaction->id) }}', {
                'method': 'put',
                'data': formPayload,
                'headers': {
                   'X-CSRF-TOKEN': "{{ csrf_token() }}",
                }
             })
-         })
+
+            if (response.status == 200) {
+               $('.name').text(response.name);
+               $('.phone_number').text(response.phone_number);
+               $('.email').text(response.email);
+               stepper.next();
+            }
+
+            console.log(response);
+         });
+
+         $('#payment-form').on('submit', async function() {
+            const formPayload = $(this).serialize();
+
+            const response = await $.ajax('{{ route('booking.finalize', $transaction->id) }}', {
+               'method': 'post',
+               'data': formPayload,
+               'headers': {
+                  'X-CSRF-TOKEN': "{{ csrf_token() }}",
+               }
+            })
+
+            if (response.status == 200) {
+               stepper.next();
+            }
+         });
 
 
          $('.next-submit-form').on('click', function(e) {
             e.preventDefault();
-            stepper.next();
-            $(this).submit();
+            const isNextStep = $(this).attr('next-step');
+            isNextStep ? stepper.next() : $(this).submit();
          })
       });
    </script>

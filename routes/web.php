@@ -31,4 +31,13 @@ Route::get('account/verify/{token}', [RegisLoginController::class, 'verifyAccoun
 Route::controller(BookingPageController::class)->name('booking.')->group(function () {
    Route::get('/booking/{transaction}', 'edit')->name('edit');
    Route::put('/booking/{transaction}', 'update')->name('update');
+   Route::post('/booking/finalized/{transaction}', 'finalize')->name('finalize');
+   Route::get('/booking/print-ticket/{transaction}', 'print-ticket')->name('print-ticket');
+});
+
+Route::get('/test', function () {
+   // $pdf = \PDF::loadView('app.pdf.e-ticket');
+   // return $pdf->download('pdfview.pdf');
+
+   return view('app.pdf.e-ticket');
 });
