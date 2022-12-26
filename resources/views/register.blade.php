@@ -1,69 +1,78 @@
 @extends('layout.user')
 
 @section('title')
-  Register
+   Register
 @endsection
 
 @section('content')
-<div class="bg-white d-flex flex-column align-items-center p-5" >
-    <div class="text-white bg-dark p-5 border-dark" style="border-radius: 50px">
-        @if (session('success'))
-            <h1>{{session('success')}}</h1>
-        @endif
-        <form action="/regValid" method="POST">
+   <div class="d-flex justify-content-between align-items-center p-5" >
+      <div>
+         <div style="width: 700px">
+             <h4>Hello, Welcome to BoboPlace Registration page!</h4>
+         </div>
+         <div>
+            <img src="/images/regis_login/regis.png" alt="" style="width: 650px">
+         </div>
+     </div>
+      <div class="text-white ps-4 pe-4 pt-3 pb-3 border-dark" style="background-color: rgba(117, 140, 131, 1);border-radius: 10px; width: 600px;">
+         @if (session('success'))
+            <h1>{{ session('success') }}</h1>
+         @endif
+         <form action="/regValid" method="POST">
             @csrf
-            <div class="d-flex">
-                <h5>Hello, Welcome to BoboPlace Registration page!</h5>
-            </div>
             <div class="">
-                <label for="">Username</label>
-                <input class="form-control" type="text" id="username" name="username" placeholder="Enter your username">
+               <label for="">Username</label>
+               <input class="form-control" type="text" id="username" name="username" placeholder="Enter your username">
             </div>
             @error('username')
-                <div class="alert alert-danger" role="alert">
-                    {{$message}}
-                </div>
+               <div class="alert alert-danger" role="alert">
+                  {{ $message }}
+               </div>
             @enderror
             <div>
-                <label for="">Email</label>
-                <input class="form-control" type="text" id="email" name="email" placeholder="Enter your email">
+               <label for="">Email</label>
+               <input class="form-control" type="text" id="email" name="email" placeholder="Enter your email">
             </div>
             @error('email')
-                <div class="alert alert-danger" role="alert">
-                    {{$message}}
-                </div>
+               <div class="alert alert-danger" role="alert">
+                  {{ $message }}
+               </div>
             @enderror
             <div>
-                <label for="">Phone Number</label>
-                <input class="form-control" type="text" id="phoneNum" name="phoneNum" placeholder="Enter your phone number">
+               <label for="">Phone Number</label>
+               <input class="form-control" type="text" id="phone_number" name="phone_number"
+                  placeholder="Enter your phone number">
             </div>
-            @error('phoneNum')
-                <div class="alert alert-danger" role="alert">
-                    {{$message}}
-                </div>
+            @error('phone_number')
+               <div class="alert alert-danger" role="alert">
+                  {{ $message }}
+               </div>
             @enderror
             <div>
-                <label for="">Password</label>
-                <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password">
+               <label for="">Password</label>
+               <input class="form-control" type="password" id="password" name="password"
+                  placeholder="Enter your password">
             </div>
             @error('password')
-                <div class="alert alert-danger" role="alert">
-                    {{$message}}
-                </div>
+               <div class="alert alert-danger" role="alert">
+                  {{ $message }}
+               </div>
             @enderror
             <div>
-                <label for="">Confirm Password</label>
-                <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" placeholder="Enter your confirm password">
+               <label for="">Confirm Password</label>
+               <input class="form-control" type="password" id="password_confirmation" name="password_confirmation"
+                  placeholder="Enter your confirm password">
             </div>
             @error('password_confirmation')
-                <div class="alert alert-danger" role="alert">
-                {{$message}}
-                </div>
+               <div class="alert alert-danger" role="alert">
+                  {{ $message }}
+               </div>
             @enderror
             <br>
-            <button class="btn btn-success btn-l btn-block" type="submit">Register</button>
-        </form>
-        <div class="text-white">Already have an account? <a href="{{url('/login')}}" class="text-success text-decoration-none">Login now!</a></div>
-    </div>
-</div>
+            <button class="btn btn-warning form-control" type="submit"><b>Register</b></button>
+         </form>
+         <div class="text-white">Already have an account? <a href="{{ url('/login') }}"
+               class="text-warning text-decoration-none">Login now!</a></div>
+      </div>
+   </div>
 @endsection
