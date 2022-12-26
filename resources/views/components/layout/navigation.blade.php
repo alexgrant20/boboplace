@@ -14,10 +14,8 @@
                <a class="nav-link" href="index.html">Home</a>
             </li>
             <li><a class="nav-link" href="{{url('/booking-history')}}">Booking History</a></li>
-            <li><a class="nav-link" href="about.html">About us</a></li>
-            <li><a class="nav-link" href="services.html">Services</a></li>
-            <li><a class="nav-link" href="blog.html">Blog</a></li>
-            <li><a class="nav-link" href="contact.html">Contact us</a></li>
+            <li><a class="nav-link" href="{{url('/about-us')}}">About us</a></li>
+            <li><a class="nav-link" href="{{url('/profile')}}">Profile</a></li>
          </ul>
 
          <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">

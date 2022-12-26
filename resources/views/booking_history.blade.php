@@ -1,7 +1,7 @@
 @extends('layout.user')
 
 @section('title')
-  Login
+  Booking History
 @endsection
 
 @section('content')

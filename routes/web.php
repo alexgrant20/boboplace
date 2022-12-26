@@ -45,3 +45,12 @@ Route::get('/test', function () {
 
 
 Route::get('/booking-history', [BookingHistoryController::class, 'index']);
+
+Route::get('/about-us', function () {
+   return view('about_us');
+});
+
+
+Route::get('/profile', function () {
+   return view('profile');
+});
