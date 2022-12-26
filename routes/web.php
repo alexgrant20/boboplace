@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingHistoryController;
 use App\Http\Controllers\BookingPageController;
 use App\Http\Controllers\RegisLoginController;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,6 @@ Route::get('/test', function () {
 
    return view('app.pdf.e-ticket');
 });
+
+
+Route::get('/booking-history', [BookingHistoryController::class, 'index']);

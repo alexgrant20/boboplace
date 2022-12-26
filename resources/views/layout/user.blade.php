@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 <x-layout.head></x-layout.head>
 
 <body>

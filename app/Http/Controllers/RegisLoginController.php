@@ -21,7 +21,6 @@ class RegisLoginController extends Controller
    }
    public function logValid(Request $request)
    {
-      dd($request);
       $request->validate([
          'email' => 'required',
          'password' => 'required'
