@@ -42,7 +42,16 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, distincti
          'city_id' => 1,
       ]);
 
-      User::create([
+      User::create(
+      [
+            'role_id' => 1,
+            'username' => 'bobo admin',
+            'email' => 'boboadmin@gmail.com',
+            'password' => Hash::make('password'),
+            'phone_number' => '628787949591',
+            'is_email_verified' => now(),
+      ],
+      [
          'role_id' => 2,
          'username' => 'bobo member',
          'email' => 'bobomember@gmail.com',

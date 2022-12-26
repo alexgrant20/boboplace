@@ -22,4 +22,13 @@ class User extends Authenticatable
   protected $casts = [
     'email_verified_at' => 'datetime',
   ];
+
+  public function role() {
+      return $this->belongsTo(Role::class);
+  }
+
+  public function scopeHasRole($query, $role)
+  {
+    return !empty($query->where('id', auth()->user()->id)->whereRelation('role', 'name', $role)->first());
+  }
 }
