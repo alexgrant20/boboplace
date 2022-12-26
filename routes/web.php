@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingHistoryController;
 use App\Http\Controllers\BookingPageController;
 use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\RegisLoginController;
@@ -44,3 +45,14 @@ Route::get('/test', function () {
 });
 
 Route::get('/detailHotel/{hotel}', [DetailPageController::class, 'viewDetail']);
+
+Route::get('/booking-history', [BookingHistoryController::class, 'index']);
+
+Route::get('/about-us', function () {
+   return view('about_us');
+});
+
+
+Route::get('/profile', function () {
+   return view('profile');
+});
