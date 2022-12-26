@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingPageController;
+use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\RegisLoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,3 +42,5 @@ Route::get('/test', function () {
 
    return view('app.pdf.e-ticket');
 });
+
+Route::get('/detailHotel/{hotel}', [DetailPageController::class, 'viewDetail']);

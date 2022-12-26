@@ -14,6 +14,7 @@ return new class extends Migration
          $table->string('name')->unique();
          $table->integer('rating');
          $table->text('full_address');
+         $table->text('description');
          $table->integer('price');
          $table->timestamps();
          $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('cascade');

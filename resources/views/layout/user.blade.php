@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
 
-<x-layout.head></x-layout.head>
+<x-layout.head>
+
+</x-layout.head>
 
 <body>
    <x-layout.navigation></x-layout.navigation>

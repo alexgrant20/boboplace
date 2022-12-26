@@ -36,6 +36,9 @@ class DatabaseSeeder extends Seeder
          'rating' => '4',
          'price' => '500500',
          'full_address' => 'Jalan marioto jowo',
+         'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sit vero nisi voluptatibus quaerat fuga sequi quisquam nostrum dolor commodi aspernatur blanditiis consequatur fugiat, ut temporibus debitis unde? Corrupti, nulla.
+
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, distinctio fuga fugit quis labore nostrum voluptatibus, ipsam facilis ipsa beatae veniam est voluptatem omnis reprehenderit accusamus, reiciendis magni ad totam quibusdam? Inventore nesciunt ipsum quisquam atque! Officiis quo debitis delectus?',
          'city_id' => 1,
       ]);
 
