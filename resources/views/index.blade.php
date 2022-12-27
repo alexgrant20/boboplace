@@ -454,7 +454,7 @@
       </div>
       <div class="">
          <img class="pe-1" style="margin-bottom: 5px" src=" {{asset('images/Addimg.png')}} " alt="">
-         <a style="color:#575757;" href="">Add new hotel</a>
+         <a style="color:#575757;" href="{{ route('hotel.create') }}">Add new hotel</a>
       </div>
    </div>
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookingHistoryController;
 use App\Http\Controllers\BookingPageController;
 use App\Http\Controllers\DetailPageController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RegisLoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,8 @@ Route::get('/test', function () {
 
    return view('app.pdf.e-ticket');
 });
+
+Route::resource('hotel', HotelController::class)->only(['create', 'store', 'show', 'destroy']);
 
 Route::get('/detailHotel/{hotel}', [DetailPageController::class, 'viewDetail']);
 
