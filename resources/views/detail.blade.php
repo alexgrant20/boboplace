@@ -10,8 +10,8 @@
    <div class="col-1">
       <div class="d-flex justify-content-center" >
          <ul class="list-unstyled">
-            <li>
-               <a href="{{ route('hotel.edit', ['hotel' => $hotel]) }}"><i class="fa-solid fa-pen-to-square fa-4x"></i></a>
+            <li class="d-flex justify-content-center">
+               <a href="{{ route('hotel.edit', ['hotel' => $hotel]) }}"><i class="fa-solid fa-pen-to-square fa-3x"></i></a>
             </li>
             <br>
             <li>
@@ -19,7 +19,7 @@
                   @csrf
                   @method('delete')
                   <button type="submit" class="btn">
-                     <i class="fas fa-trash-can fa-4x"></i>
+                     <i class="fas fa-trash-can fa-3x"></i>
                  </button>
                </form>
             </li>

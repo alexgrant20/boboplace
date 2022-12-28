@@ -1,6 +1,6 @@
 {{-- {{dd($path)}} --}}
 
 
-{{-- {{dd($file)}} --}}
+{{dd($hotel)}}
    <img src="{{$path}}" alt="sss">
 
