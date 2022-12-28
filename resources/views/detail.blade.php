@@ -11,11 +11,17 @@
       <div class="d-flex justify-content-center" >
          <ul class="list-unstyled">
             <li>
-               <a href=""><i class="fa-solid fa-pen-to-square fa-4x"></i></a>
+               <a href="{{ route('hotel.edit', ['hotel' => $hotel]) }}"><i class="fa-solid fa-pen-to-square fa-4x"></i></a>
             </li>
             <br>
             <li>
-               <a href=""><i class="fa-regular fa-trash-can fa-4x"></i></a>
+               <form action={{ route('hotel.destroy', ['hotel'=> $hotel]) }} method="POST">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn">
+                     <i class="fas fa-trash-can fa-4x"></i>
+                 </button>
+               </form>
             </li>
          </ul>
       </div>

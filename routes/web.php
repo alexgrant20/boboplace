@@ -45,7 +45,7 @@ Route::get('/test', function () {
    return view('app.pdf.e-ticket');
 });
 
-Route::resource('hotel', HotelController::class)->only(['create', 'store', 'show', 'destroy']);
+Route::resource('hotel', HotelController::class)->only(['create', 'store', 'edit', 'update', 'index', 'destroy']);
 
 Route::get('/detailHotel/{hotel}', [DetailPageController::class, 'viewDetail']);
 

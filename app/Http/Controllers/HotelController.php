@@ -15,12 +15,12 @@ class HotelController extends Controller
 {
    public function __construct()
    {
-     $this->middleware('role:admin', ['only' => ['create', 'store', 'destroy']]);
+     $this->middleware('role:admin', ['only' => ['create', 'store', 'destroy', 'edit']]);
      $this->middleware('auth', ['only' => ['show']]);
    }
 
    public function index(){
-      //
+      return redirect('/');
    }
 
    public function create(){
@@ -71,5 +71,22 @@ class HotelController extends Controller
 
 
      return redirect('/');
+   }
+
+   public function edit(Hotel $hotel){
+
+      $file = File::where('hotel_id', $hotel->id)->first();
+      // dd($file);
+      $path = $file->path;
+
+      return view('admin.edithotel', compact('hotel', 'path'));
+   }
+
+   public function destroy(Hotel $hotel){
+
+      // dd($hotel);
+      $hotel->delete();
+
+      return redirect('/');
    }
 }

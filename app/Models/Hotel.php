@@ -17,4 +17,8 @@ class Hotel extends Model
       'description',
       'city_id'
     ];
+
+    public function files(){
+      return $this->hasMany(File::class);
+    }
 }
