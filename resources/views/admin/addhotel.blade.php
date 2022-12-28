@@ -14,13 +14,13 @@
             <div class="row">
                   <div class="col">
                      <div class="mb-4 mt-5 d-flex justify-content-center" style="border-radius: 1em">
-                        <img src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
-                        alt="example placeholder" style="width: 420px; height: 350px;" class="rounded" />
+                        <img id="preview" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
+                        alt="Image Preview" style="width: 420px; height: 350px;" class="rounded" />
                   </div>
                   <div class="d-flex justify-content-center">
                         <div class="btn btn-primary btn-rounded mb-3">
-                           <label class="form-label text-white m-1" for="customFile1">Choose file</label>
-                           <input type="file" class="form-control d-none" name="image" id="customFile1" />
+                           <label class="form-label text-white m-1" for="image">Choose file</label>
+                           <input type="file" class="form-control d-none" name="image" id="image" onchange="previewImage(this)" />
                            @error('image')
                               <div>
                                  {{$message}}
@@ -97,3 +97,15 @@
    </div>
 </div>
 @endsection
+
+<script>
+   function previewImage(input) {
+       if (input.files && input.files[0]) {
+           var reader = new FileReader();
+           reader.onload = function(e) {
+               $('#preview').attr('src', e.target.result).show();
+           }
+           reader.readAsDataURL(input.files[0]);
+       }
+   }
+   </script>
