@@ -20,7 +20,7 @@
                   <div class="d-flex justify-content-center">
                         <div class="btn btn-primary btn-rounded mb-3">
                            <label class="form-label text-white m-1" for="image">Choose file</label>
-                           <input type="file" class="form-control d-none" name="image" id="image" onchange="previewImage(this)" />
+                           <input type="file" class="form-control d-none" name="image[]" id="image" multiple onchange="previewImage(this)"/>
                            @error('image')
                               <div>
                                  {{$message}}

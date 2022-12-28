@@ -5,6 +5,10 @@
 @endsection
 
 @section('content')
+{{-- @if (Auth::user()->role_id == 1)
+   Admin Detail Page
+@endif --}}
+
   <div class="row p-3">
     <div class="col-lg-4">
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
@@ -15,13 +19,13 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('images/Hotel1.jpg') }}" class="d-block img-fluid" alt="..." style="min-height: 650px; object-fit: cover;">
+            <img src="{{ asset('images/Hotel1.jpg') }}" class="d-block rounded img-fluid" alt="..." style="min-height: 650px; object-fit: cover;">
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('images/Hotel2.jpg') }}" class="d-block w-100" alt="..." style="min-height: 650px; object-fit: cover;">
+            <img src="{{ asset('images/Hotel2.jpg') }}" class="d-block rounded w-100" alt="..." style="min-height: 650px; object-fit: cover;">
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('images/Hotel1.jpg') }}" class="d-block w-100" alt="..." style="min-height: 6500px; object-fit: cover;">
+            <img src="{{ asset('images/Hotel1.jpg') }}" class="d-block rounded w-100" alt="..." style="min-height: 6500px; object-fit: cover;">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -47,9 +51,16 @@
             </ul>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-4 mb-4">
           <h6 class="fw-bold">Rp. {{ number_format($hotel->price, 0, ',', '.') }}</h6>
-          <a href="/booking/{{$hotel->id}}" class="btn btn-primary px-4 rounded-pill">Book Now</a>
+          @if (Auth::user()->role_id == 1)
+            <a href=""><button class="btn btn-warning text-black rounded-3 mt-2">Edit</button></a>
+            <a href=""><button class="btn btn-danger text-white rounded-3 mt-2">Delete</button></a>
+          @else
+            <a href="/booking/{{$hotel->id}}" class="btn btn-primary px-4 rounded-pill">Book Now</a>
+          @endif
+
+
         </div>
       </div>
       <div class="row mb-2">
@@ -82,6 +93,11 @@
           </div>
 
         </div>
+
+      </div>
+      <div class="row mt-2 d-flex justify-content-center">
+
+
 
       </div>
     </div>

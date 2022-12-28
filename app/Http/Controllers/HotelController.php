@@ -9,6 +9,7 @@ use App\Models\File;
 use App\Models\Hotel;
 use App\Models\HotelFacility;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class HotelController extends Controller
 {
@@ -32,13 +33,9 @@ class HotelController extends Controller
 
    public function store(AddHotelRequest $request){
 
-      //  dd($request);
-      $imageName = $request->name . '-' . time() . '-' . $request->file('image')->getClientOriginalName();
-      $fullPath = "/storage/hotel/{$imageName}";
-      $request->image->storeAs('/public/hotel', $imageName);
+      //   dd($request);
 
-
-      Hotel::create([
+        Hotel::create([
          'name' => $request->name,
          'rating' => 5,
          'price' => $request->price,
@@ -49,10 +46,17 @@ class HotelController extends Controller
 
         $hotel = Hotel::latest()->first();
 
-      File::create([
-         'hotel_id' => $hotel->id,
-         'path' => $fullPath
-      ]);
+         foreach ($request->file('image') as $req) {
+            // dd($req);
+         $imageName = Str::random(5) . '-' . time() . '-' . $req->getClientOriginalName();
+         $fullPath = "/storage/hotel/{$imageName}";
+         $req->storeAs('/public/hotel', $imageName);
+
+         File::create([
+            'hotel_id' => $hotel->id,
+            'path' => $fullPath
+         ]);
+      }
 
       $facilities = Facility::all();
 
