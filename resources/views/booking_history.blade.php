@@ -30,4 +30,5 @@
          </div>
       </div>
    @endforeach
+   {{-- <i class="{{$fac->icon}}"></i> --}}
 @endsection

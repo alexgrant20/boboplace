@@ -9,3 +9,5 @@ class Facility extends Model
 {
     use HasFactory;
 }
+
+

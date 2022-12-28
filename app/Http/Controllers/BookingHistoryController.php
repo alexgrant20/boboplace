@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Facility;
 use App\Models\Hotel;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class BookingHistoryController extends Controller
     {
       $bookingTransaction = Transaction::all();
       $hotel = Hotel::all();
+      // $fac = Facility::all()->first();
       return view('booking_history', compact('bookingTransaction', 'hotel'));
     }
 

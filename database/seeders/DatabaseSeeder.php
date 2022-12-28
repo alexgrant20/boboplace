@@ -70,10 +70,12 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, distincti
       'name' => 'paid'
     ]);
 
-    Facility::create(['name' => 'wi-fi']);
-    Facility::create(['name' => 'toilet']);
-    Facility::create(['name' => 'window']);
-    Facility::create(['name' => 'panorama-view']);
+    Facility::create(['name' => 'Wi-Fi', 'icon' => 'bi bi-wifi']);
+    Facility::create(['name' => 'Toilet',  'icon' => 'fa-solid fa-toilet']);
+    Facility::create(['name' => 'Window',  'icon' => 'fa-light fa-window-frame']);
+    Facility::create(['name' => 'BBQ facilities', 'icon' => 'fa-solid fa-grill-hot']);
+    Facility::create(['name' => 'Swimming pool',  'icon' =>'fa-solid fa-person-swimming']);
+    Facility::create(['name' => 'Bar', 'icon' => 'fa-regular fa-martini-glass']);
 
     PaymentType::create([
       'name' => 'ovo'
