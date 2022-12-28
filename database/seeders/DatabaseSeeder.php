@@ -27,9 +27,12 @@ class DatabaseSeeder extends Seeder
       'name' => 'member'
     ]);
 
-    City::create([
-      'name' => 'Jakarta'
-    ]);
+    City::create(['name' => 'Jakarta']);
+    City::create(['name' => 'Bandung']);
+    City::create(['name' => 'Tangerang']);
+    City::create(['name' => 'Bogor']);
+    City::create(['name' => 'Bekasi']);
+
 
     Hotel::create([
       'name' => 'Mariot Jowo',
