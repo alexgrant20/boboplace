@@ -5,11 +5,23 @@
 @endsection
 
 @section('content')
-{{-- @if (Auth::user()->role_id == 1)
-   Admin Detail Page
-@endif --}}
-
   <div class="row p-3">
+   @if (Auth::user()->role_id == 1)
+   <div class="col-1">
+      <div class="d-flex justify-content-center" >
+         <ul class="list-unstyled">
+            <li>
+               <a href=""><i class="fa-solid fa-pen-to-square fa-4x"></i></a>
+            </li>
+            <br>
+            <li>
+               <a href=""><i class="fa-regular fa-trash-can fa-4x"></i></a>
+            </li>
+         </ul>
+      </div>
+    </div>
+   @endif
+
     <div class="col-lg-4">
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
         <div class="carousel-indicators">
@@ -38,7 +50,11 @@
         </button>
       </div>
     </div>
+    @if (Auth::user()->role_id == 1)
+    <div class="col-lg-7 p-2">
+    @else
     <div class="col-lg-8 p-2">
+    @endif
       <div class="row mb-2">
         <div class="col-8">
           <h3 class="mb-2">{{$hotel->name}}</h3>
@@ -53,10 +69,7 @@
         </div>
         <div class="col-4 mb-4">
           <h6 class="fw-bold">Rp. {{ number_format($hotel->price, 0, ',', '.') }}</h6>
-          @if (Auth::user()->role_id == 1)
-            <a href=""><button class="btn btn-warning text-black rounded-3 mt-2">Edit</button></a>
-            <a href=""><button class="btn btn-danger text-white rounded-3 mt-2">Delete</button></a>
-          @else
+          @if (Auth::user()->role_id == 2)
             <a href="/booking/{{$hotel->id}}" class="btn btn-primary px-4 rounded-pill">Book Now</a>
           @endif
 
