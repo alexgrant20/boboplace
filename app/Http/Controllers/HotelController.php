@@ -9,6 +9,7 @@ use App\Models\File;
 use App\Models\Hotel;
 use App\Models\HotelFacility;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class HotelController extends Controller
@@ -76,10 +77,25 @@ class HotelController extends Controller
    public function edit(Hotel $hotel){
 
       $file = File::where('hotel_id', $hotel->id)->first();
-      // dd($file);
       $path = $file->path;
+      // dd($file);
+      // $facility = HotelFacility::where('hotel_id', $hotel->id);
+      // $fac = $facility->facility_id;
+      $cities = City::all();
+      $cityName = DB::table('hotels as ht')
+                ->join('cities as ct', 'ht.city_id', '=', 'ct.id')
+                ->where('ht.id', $hotel->id)
+                ->select('ct.name')
+                ->first();
 
-      return view('admin.edithotel', compact('hotel', 'path'));
+      $facilities = Facility::all();
+      $facilityHotel = DB::table('hotels as ht')
+                     ->join('hotel_facilities as hf', 'ht.id', '=', 'hf.hotel_id')
+                     ->where('ht.id', $hotel->id)
+                     ->select('hf.facility_id')
+                     ->get();
+
+      return view('admin.edithotel', compact('hotel', 'path', 'cities', 'cityName', 'facilities', 'facilityHotel'));
    }
 
    public function destroy(Hotel $hotel){

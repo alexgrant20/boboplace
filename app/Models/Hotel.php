@@ -21,4 +21,8 @@ class Hotel extends Model
     public function files(){
       return $this->hasMany(File::class);
     }
+
+    public function city(){
+      return $this->hasMany(City::class);
+    }
 }
