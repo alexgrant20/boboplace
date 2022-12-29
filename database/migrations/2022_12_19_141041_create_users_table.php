@@ -16,6 +16,7 @@ return new class extends Migration
       $table->string('password');
       $table->string('phone_number');
       $table->dateTime('is_email_verified')->nullable();
+      $table->text('profile_picture')->nullable();
       $table->timestamps();
     });
   }

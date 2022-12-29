@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class RegisLoginController extends Controller
@@ -109,5 +110,43 @@ class RegisLoginController extends Controller
          }
       }
       return redirect('/login')->withSuccess($message);
+   }
+
+   public function editProfile(Request $request, $id){
+      $request->validate([
+          'profile_picture'=>'required|file|image'
+      ]);
+
+      if($request->file('profile_picture')){
+          if($request->oldProfile){
+              Storage::disk('public')->delete($request->oldProfile);
+         }
+         User::where('id', 'like', $id)->update([
+            'profile_picture' => $request->file('profile_picture')->store('profile','public')
+         ]);
+      }
+      return redirect('/');
+   }
+
+  public function edit($id){
+      $user = User::where('id', 'like', Auth::user()->id)->first();
+      return view('profile', compact('user'));
+   }
+
+   public function update(Request $request){
+      $request->validate([
+         'username'=>'required',
+         'email'=>'required|email',
+         'dob'=>'required',
+         'phone_number'=>'required|min:5|max:13'
+      ]);
+
+      User::where('id', 'like', Auth::user()->id)->update([
+         'username' => $request->username,
+         'email' => $request->email,
+         'DOB' => $request->dob,
+         'phone_number' => $request->phone_number
+      ]);
+      return redirect('/');
    }
 }

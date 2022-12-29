@@ -55,7 +55,6 @@ Route::get('/about-us', function () {
    return view('about_us');
 });
 
-
-Route::get('/profile', function () {
-   return view('profile');
-});
+Route::patch('/update-profile-image/{id}', [RegisLoginController::class, 'editProfile']);
+Route::get('/update-profile/{id}', [RegisLoginController::class, 'edit']);
+Route::patch('/updated-profile', [RegisLoginController::class, 'update']);
