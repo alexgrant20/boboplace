@@ -13,14 +13,18 @@
             @csrf
             <div class="row">
                   <div class="col">
-                     <div class="mb-4 mt-5 d-flex justify-content-center" style="border-radius: 1em">
+                     <div class="d-flex justify-content-center align-items-center" style="border-radius: 1em; height: 100%;">
 
                       <label for="firstimg">
                         <img src="{{asset('images/placeholderimg.png')}}" width="420px" height="350px" style="cursor: pointer;" id="display-image">
                       </label>
 
                       <input type="file" id="firstimg" style="display: none; visibility: none;" class="form-control d-none" name="image[]" id="image" multiple onchange="previewImage(this)"/>
-
+                      @error('image')
+                              <div>
+                                 {{$message}}
+                              </div>
+                           @enderror
                      </div>
                   </div>
 
@@ -34,10 +38,22 @@
                               </div>
                            @enderror
                      </div>
+
+                     <div class="mb-3">
+                        <label for="description" class="form-label text-white">Description</label>
+                        <textarea rows="5" class="form-control" placeholder="Enter Hotel Description" class="text-black" id="description" name="description"></textarea>
+                        @error('description')
+                              <div>
+                                 {{$message}}
+                              </div>
+                           @enderror
+                     </div>
+
+
                      <div class="form-group mb-3">
                         <label for="city" class="col-sm-2 control-label text-white">City</label>
                         <div class="col">
-                           <select class="form-control" id="city" name="city">
+                           <select class="form-select" id="city" name="city" style="border-radius: 10px">
                               <option value="0">Select City</option>
                               @foreach ($cities as $city)
                                  <option value="{{$city->id}}">{{$city->name}}</option>
@@ -50,6 +66,7 @@
                            @enderror
                         </div>
                      </div>
+
                      <div class="mb-3">
                         <label for="address" class="form-label text-white">Address</label>
                         <input type="text" class="form-control" placeholder="Enter Hotel Full Address" id="address" name="full_address">
@@ -68,14 +85,34 @@
                               </div>
                            @enderror
                      </div>
+
+                     <div class="form-group mb-3">
+                        <label for="rating" class="col-sm-2 control-label text-white">Rating</label>
+                        <div class="col">
+                           <select class="form-select" id="rating" name="rating" style="border-radius: 10px">
+                              <option value="0">Select Hotel Rating</option>
+                              <option value="1">⭐</option>
+                              <option value="2">⭐⭐</option>
+                              <option value="3">⭐⭐⭐</option>
+                              <option value="4">⭐⭐⭐⭐</option>
+                              <option value="5">⭐⭐⭐⭐⭐</option>
+                           </select>
+                           @error('rating')
+                              <div>
+                                 {{$message}}
+                              </div>
+                           @enderror
+                        </div>
+                     </div>
+
                      <div class="mb-3">
                         <label for="address" class="form-label text-white">Facilities</label>
                         <br>
                         <div class="row">
                            <div class="col-12">
                               @foreach ($facilities as $facility)
-                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="{{$facility->id}}" value="1">
+                                 <div class="d-inline-flex align-items-center gap-2 me-3">
+                                    <input class="form-check-input mt-0" type="checkbox" id="inlineCheckbox1" name="{{$facility->id}}" value="1">
                                     <label class="form-check-label text-white" for="inlineCheckbox1"> {{$facility->name}} </label>
                                  </div>
                               @endforeach

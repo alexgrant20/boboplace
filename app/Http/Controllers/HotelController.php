@@ -37,10 +37,10 @@ class HotelController extends Controller
 
         Hotel::create([
          'name' => $request->name,
-         'rating' => 5,
+         'rating' => $request->rating,
          'price' => $request->price,
          'full_address' => $request->full_address,
-         'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit excepturi tempora amet quaerat labore quod, quisquam vitae soluta dolorum magni.',
+         'description' => $request->description,
          'city_id' => $request->city,
          ]);
 
@@ -85,6 +85,9 @@ class HotelController extends Controller
    public function destroy(Hotel $hotel){
 
       // dd($hotel);
+
+      HotelFacility::where('hotel_id', $hotel->id)->delete();
+
       $hotel->delete();
 
       return redirect('/');
