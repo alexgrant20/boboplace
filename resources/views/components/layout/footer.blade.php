@@ -3,7 +3,7 @@
       <div class="d-flex align-items-center justify-content-between p-4">
          <div>
             <h3 class="d-flex align-items-center">
-               <span class="me-1"><img src="images/envelope-outline.svg" alt="Image" class="img-fluid">
+               <span class="me-1"><img src="/images/envelope-outline.svg" alt="" class="img-fluid">
                </span>
                <span>Subscribe to Newsletter</span>
             </h3>

@@ -137,14 +137,12 @@ class RegisLoginController extends Controller
       $request->validate([
          'username'=>'required',
          'email'=>'required|email',
-         'dob'=>'required',
          'phone_number'=>'required|min:5|max:13'
       ]);
 
       User::where('id', 'like', Auth::user()->id)->update([
          'username' => $request->username,
          'email' => $request->email,
-         'DOB' => $request->dob,
          'phone_number' => $request->phone_number
       ]);
       return redirect('/');
