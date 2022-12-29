@@ -16,7 +16,7 @@
    <div class="p-3">
       <div class="card" style="width: 100%; border-radius: 1em; background-color: #758C83">
          <div class="container">
-            <form action="{{ route('hotel.update', $hotel->id)}}" method="POST" class="mb-3">
+            <form action="{{ route('hotel.update', ['hotel' => $hotel])}}" method="POST" class="mb-3">
                @csrf
                @method('put')
                <div class="row">
