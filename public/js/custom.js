@@ -29,12 +29,11 @@
       if (el.length > 0) {
          var slyder = tns({
             container: ".hotel-slider",
-            items: 7,
+            items: 5,
             axis: "horizontal",
             slideBy: "page",
             controlsContainer: "#hotel-nav",
             speed: 700,
-            nav: true,
             controls: true,
          });
       }

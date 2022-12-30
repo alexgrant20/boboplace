@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Facility extends Model
 {
-    use HasFactory;
+   use HasFactory;
+
+   public function hotelFacility()
+   {
+      return $this->hasMany(HotelFacility::class);
+   }
 }
-
-

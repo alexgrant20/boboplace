@@ -10,25 +10,31 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-  use HasApiTokens, HasFactory, Notifiable;
+   use HasApiTokens, HasFactory, Notifiable;
 
-  protected $guarded = ['id'];
+   protected $guarded = ['id'];
 
-  protected $hidden = [
-    'password',
-    'remember_token',
-  ];
+   protected $hidden = [
+      'password',
+      'remember_token',
+   ];
 
-  protected $casts = [
-    'email_verified_at' => 'datetime',
-  ];
+   protected $casts = [
+      'email_verified_at' => 'datetime',
+   ];
 
-  public function role() {
+   public function role()
+   {
       return $this->belongsTo(Role::class);
-  }
+   }
 
-  public function scopeHasRole($query, $role)
-  {
-    return !empty($query->where('id', auth()->user()->id)->whereRelation('role', 'name', $role)->first());
-  }
+   public function transaction()
+   {
+      return $this->hasMany(Transaction::class);
+   }
+
+   public function scopeHasRole($query, $role)
+   {
+      return !empty($query->where('id', auth()->user()->id)->whereRelation('role', 'name', $role)->first());
+   }
 }

@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
-    protected $fillable = [
+   protected $fillable = [
       'hotel_id',
       'path',
-    ];
+   ];
+
+   public function hotel()
+   {
+      return $this->belongsTo(Hotel::class);
+   }
 }

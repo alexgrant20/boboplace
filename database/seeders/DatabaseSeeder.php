@@ -8,6 +8,7 @@ use App\Models\City;
 use App\Models\Facility;
 use App\Models\File;
 use App\Models\Hotel;
+use App\Models\HotelFacility;
 use App\Models\PaymentType;
 use App\Models\Role;
 use App\Models\Status;
@@ -28,56 +29,163 @@ class DatabaseSeeder extends Seeder
          'name' => 'member'
       ]);
 
+      Facility::create(['name' => 'Wi-Fi', 'icon' => 'bi bi-wifi']);
+      Facility::create(['name' => 'Toilet',  'icon' => 'fa-solid fa-toilet']);
+      Facility::create(['name' => 'Window',  'icon' => 'fa-light fa-window-frame']);
+      Facility::create(['name' => 'BBQ facilities', 'icon' => 'fa-solid fa-grill-hot']);
+      Facility::create(['name' => 'Swimming pool',  'icon' => 'fa-solid fa-person-swimming']);
+      Facility::create(['name' => 'Bar', 'icon' => 'fa-regular fa-martini-glass']);
+
       City::create(['name' => 'Jakarta']);
       City::create(['name' => 'Bandung']);
       City::create(['name' => 'Tangerang']);
       City::create(['name' => 'Bogor']);
       City::create(['name' => 'Bekasi']);
+      City::create(['name' => 'Jayapura']);
 
       Hotel::create([
-         'name' => 'Mariot Jowo',
+         'name' => 'Swiss-Belhotel Papua',
          'rating' => '4',
-         'price' => '500500',
-         'full_address' => 'Jalan marioto jowo',
-         'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sit vero nisi voluptatibus quaerat fuga sequi quisquam nostrum dolor commodi aspernatur blanditiis consequatur fugiat, ut temporibus debitis unde? Corrupti, nulla. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, distinctio fuga fugit quis labore nostrum voluptatibus, ipsam facilis ipsa beatae veniam est voluptatem omnis reprehenderit accusamus, reiciendis magni ad totam quibusdam? Inventore nesciunt ipsum quisquam atque! Officiis quo debitis delectus?',
-         'city_id' => 1,
+         'price' => '2549238',
+         'full_address' => 'Pusat Bisnis Jayapura, Jl. Pacific Permai, Bayangkara, Kec. Jayapura Utara, Kota Jayapura, Papua 99112•(0967) 551888',
+         'description' => 'The relaxed beachfront hotel features a restaurant, bar, outdoor pool and free breakfast.',
+         'city_id' => 6,
       ]);
 
-      Hotel::create([
-         'name' => 'Mariot Jawas',
-         'rating' => '4',
-         'price' => '500500',
-         'full_address' => 'Jalan marioto jowo',
-         'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sit vero nisi voluptatibus quaerat fuga sequi quisquam nostrum dolor commodi aspernatur blanditiis consequatur fugiat, ut temporibus debitis unde? Corrupti, nulla. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, distinctio fuga fugit quis labore nostrum voluptatibus, ipsam facilis ipsa beatae veniam est voluptatem omnis reprehenderit accusamus, reiciendis magni ad totam quibusdam? Inventore nesciunt ipsum quisquam atque! Officiis quo debitis delectus?',
-         'city_id' => 1,
+      File::create([
+         'hotel_id' => 1,
+         'path' => 'images/hotel/sbp-1.jpg',
       ]);
 
-      Hotel::create([
-         'name' => 'Mariot Mawas',
-         'rating' => '4',
-         'price' => '500500',
-         'full_address' => 'Jalan marioto jowo',
-         'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sit vero nisi voluptatibus quaerat fuga sequi quisquam nostrum dolor commodi aspernatur blanditiis consequatur fugiat, ut temporibus debitis unde? Corrupti, nulla. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, distinctio fuga fugit quis labore nostrum voluptatibus, ipsam facilis ipsa beatae veniam est voluptatem omnis reprehenderit accusamus, reiciendis magni ad totam quibusdam? Inventore nesciunt ipsum quisquam atque! Officiis quo debitis delectus?',
-         'city_id' => 1,
+      File::create([
+         'hotel_id' => 1,
+         'path' => 'images/hotel/sbp-2.jpeg',
       ]);
 
-      Hotel::create([
-         'name' => 'Mariot Kawas',
-         'rating' => '4',
-         'price' => '500500',
-         'full_address' => 'Jalan marioto jowo',
-         'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sit vero nisi voluptatibus quaerat fuga sequi quisquam nostrum dolor commodi aspernatur blanditiis consequatur fugiat, ut temporibus debitis unde? Corrupti, nulla. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, distinctio fuga fugit quis labore nostrum voluptatibus, ipsam facilis ipsa beatae veniam est voluptatem omnis reprehenderit accusamus, reiciendis magni ad totam quibusdam? Inventore nesciunt ipsum quisquam atque! Officiis quo debitis delectus?',
-         'city_id' => 1,
+      File::create([
+         'hotel_id' => 1,
+         'path' => 'images/hotel/sbp-3.jpeg',
       ]);
 
+      HotelFacility::create(['hotel_id' => 1, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 1, 'facility_id' => 2]);
+      HotelFacility::create(['hotel_id' => 1, 'facility_id' => 5]);
+      HotelFacility::create(['hotel_id' => 1, 'facility_id' => 6]);
+
       Hotel::create([
-         'name' => 'Mariot Holas',
-         'rating' => '4',
-         'price' => '500500',
-         'full_address' => 'Jalan marioto jowo',
-         'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sit vero nisi voluptatibus quaerat fuga sequi quisquam nostrum dolor commodi aspernatur blanditiis consequatur fugiat, ut temporibus debitis unde? Corrupti, nulla. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, distinctio fuga fugit quis labore nostrum voluptatibus, ipsam facilis ipsa beatae veniam est voluptatem omnis reprehenderit accusamus, reiciendis magni ad totam quibusdam? Inventore nesciunt ipsum quisquam atque! Officiis quo debitis delectus?',
-         'city_id' => 1,
+         'name' => 'Hotel Aston Jayapura & Convention Center',
+         'rating' => '3',
+         'price' => '610809',
+         'full_address' => 'Jl. Percetakan Negara No.50 - 58, Gurabesi, Kec. Jayapura Utara, Kota Jayapura, Papua 99111•(0967) 537700',
+         'description' => 'Rooms are warmly decorated, some with ocean views, plus a gym, spa, cafe/bar & event space.',
+         'city_id' => 6,
       ]);
+
+      File::create([
+         'hotel_id' => 2,
+         'path' => 'images/hotel/ajh-1.jpeg',
+      ]);
+
+      File::create([
+         'hotel_id' => 2,
+         'path' => 'images/hotel/ajh-2.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 2,
+         'path' => 'images/hotel/ajh-3.jpeg',
+      ]);
+
+      HotelFacility::create(['hotel_id' => 2, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 2, 'facility_id' => 2]);
+      HotelFacility::create(['hotel_id' => 2, 'facility_id' => 3]);
+      HotelFacility::create(['hotel_id' => 2, 'facility_id' => 4]);
+      HotelFacility::create(['hotel_id' => 2, 'facility_id' => 5]);
+      HotelFacility::create(['hotel_id' => 2, 'facility_id' => 6]);
+
+      Hotel::create([
+         'name' => 'Swiss-Belhotel Merauke',
+         'rating' => '4',
+         'price' => '671500',
+         'full_address' => 'Jl. Raya Mandala No.53, Bambu Pemali, Kec. Merauke, Kabupaten Merauke, Papua 99616•(0971) 326333',
+         'description' => 'Warmly furnished room in a premium hotel featuring a spacious restaurant & outdoor pool',
+         'city_id' => 6,
+      ]);
+
+      File::create([
+         'hotel_id' => 3,
+         'path' => 'images/hotel/sbm-1.jpeg',
+      ]);
+
+      File::create([
+         'hotel_id' => 3,
+         'path' => 'images/hotel/sbm-2.jpeg',
+      ]);
+
+      File::create([
+         'hotel_id' => 3,
+         'path' => 'images/hotel/sbm-3.jpg',
+      ]);
+
+      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 3]);
+      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 6]);
+
+      Hotel::create([
+         'name' => 'Horison Jayapura',
+         'rating' => '3',
+         'price' => '1115775',
+         'full_address' => 'Jl. Percetakan II No.2, Gurabesi, Kec. Jayapura Utara, Kota Jayapura, Papua 99351•(0967) 522345',
+         'description' => 'Bright rooms in this contemporary hotel with spa, pool & fitness center and free parking.',
+         'city_id' => 6,
+      ]);
+
+      File::create([
+         'hotel_id' => 4,
+         'path' => 'images/hotel/hj-1.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 4,
+         'path' => 'images/hotel/hj-2.jpeg',
+      ]);
+
+      File::create([
+         'hotel_id' => 4,
+         'path' => 'images/hotel/hj-3.jpeg',
+      ]);
+
+      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 5]);
+      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 6]);
+
+      Hotel::create([
+         'name' => 'Swiss-Belhotel Cendrawasih Biak',
+         'rating' => '4',
+         'price' => '959500',
+         'full_address' => 'Jl. Imam Bonjol No.46, Fandoi, Kec. Biak Kota, Kabupaten Biak Numfor, Papua 98111•(0981) 8215555',
+         'description' => 'A modern hotel offering a gym, spa, outdoor swimming pool, karaoke, bar and cafe.',
+         'city_id' => 6,
+      ]);
+
+      File::create([
+         'hotel_id' => 5,
+         'path' => 'images/hotel/sbc-1.jpeg',
+      ]);
+
+      File::create([
+         'hotel_id' => 5,
+         'path' => 'images/hotel/`sbc-2.jpeg',
+      ]);
+
+      File::create([
+         'hotel_id' => 5,
+         'path' => 'images/hotel/sbc-3.jpeg',
+      ]);
+
+      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 3]);
+      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 4]);
 
       Hotel::create([
          'name' => 'Puri Setiabudhi',
@@ -175,13 +283,6 @@ class DatabaseSeeder extends Seeder
       Status::create([
          'name' => 'paid'
       ]);
-
-      Facility::create(['name' => 'Wi-Fi', 'icon' => 'bi bi-wifi']);
-      Facility::create(['name' => 'Toilet',  'icon' => 'fa-solid fa-toilet']);
-      Facility::create(['name' => 'Window',  'icon' => 'fa-light fa-window-frame']);
-      Facility::create(['name' => 'BBQ facilities', 'icon' => 'fa-solid fa-grill-hot']);
-      Facility::create(['name' => 'Swimming pool',  'icon' => 'fa-solid fa-person-swimming']);
-      Facility::create(['name' => 'Bar', 'icon' => 'fa-regular fa-martini-glass']);
 
       PaymentType::create([
          'name' => 'ovo'

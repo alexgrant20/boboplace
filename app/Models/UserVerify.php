@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserVerify extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
-    public $table = "user_verifies";
+   public $table = "user_verifies";
 
-    protected $fillable = [
-        'user_id',
-        'token'
-    ];
+   protected $fillable = [
+      'user_id',
+      'token'
+   ];
 
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
+   public function user()
+   {
+      return $this->belongsTo(User::class);
+   }
 }

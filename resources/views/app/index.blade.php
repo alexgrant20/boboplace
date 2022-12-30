@@ -57,12 +57,11 @@
             <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
             <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
          </div>
-         <div class="hotel-slider" class="">
-
+         <div class="hotel-slider" style="height: 350px">
             @foreach ($hotels as $hotel)
-               <div class="card rounded-4 shadow-sm overflow-hidden ms-3">
+               <div class="card rounded-4 shadow-sm overflow-hidden ms-3" style="min-height: 100%">
                   <a href="#" class="">
-                     <img src="images/post-1.jpg" alt="Image" class="img-fluid w-100">
+                     <img src="{{ asset(@$hotel->file->first()->path) }}" alt="Image" class="w-100" height="200px">
                   </a>
                   <div class="px-2 py-3">
                      <h3 class="fs-6">{{ $hotel->name }}</h3>

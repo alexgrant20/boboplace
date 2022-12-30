@@ -18,7 +18,7 @@ class Hotel extends Model
       'city_id'
    ];
 
-   public function files()
+   public function file()
    {
       return $this->hasMany(File::class);
    }
@@ -26,5 +26,15 @@ class Hotel extends Model
    public function city()
    {
       return $this->belongsTo(City::class);
+   }
+
+   public function transaction()
+   {
+      return $this->hasMany(Transaction::class);
+   }
+
+   public function hotelFacility()
+   {
+      return $this->hasMany(HotelFacility::class);
    }
 }
