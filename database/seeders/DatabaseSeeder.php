@@ -34,9 +34,6 @@ class DatabaseSeeder extends Seeder
       City::create(['name' => 'Bogor']);
       City::create(['name' => 'Bekasi']);
 
-      File::create([]);
-
-
       Hotel::create([
          'name' => 'Mariot Jowo',
          'rating' => '4',
