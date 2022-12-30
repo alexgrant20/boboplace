@@ -5,6 +5,7 @@ use App\Http\Controllers\BookingPageController;
 use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RegisLoginController;
+use App\Models\Hotel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-   return view('index');
+   $hotels = Hotel::all();
+
+   return view('app.index', compact('hotels'));
+});
+
+Route::get('/test', function () {
+
+   $hotels = Hotel::all()->load('city');
+
+   return view('index', compact('hotels'));
 });
 
 Route::get('/login', [RegisLoginController::class, 'index'])->name('login')->middleware('guest');
@@ -36,13 +46,6 @@ Route::controller(BookingPageController::class)->name('booking.')->group(functio
    Route::put('/booking/{transaction}', 'update')->name('update');
    Route::post('/booking/finalized/{transaction}', 'finalize')->name('finalize');
    Route::get('/booking/print-ticket/{transaction}', 'print-ticket')->name('print-ticket');
-});
-
-Route::get('/test', function () {
-   // $pdf = \PDF::loadView('app.pdf.e-ticket');
-   // return $pdf->download('pdfview.pdf');
-
-   return view('app.pdf.e-ticket');
 });
 
 Route::resource('hotel', HotelController::class)->only(['create', 'store', 'edit', 'update', 'index', 'destroy']);

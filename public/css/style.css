@@ -568,12 +568,13 @@ a.more {
    margin-bottom: 0;
 }
 
-.testimonial-slider-wrap #testimonial-nav {
+#testimonial-nav,
+#hotel-nav {
    position: absolute;
    top: 50%;
    z-index: 99;
    width: 100%;
-   display: none;
+   /* display: none; */
 }
 
 @media (min-width: 768px) {
@@ -582,28 +583,34 @@ a.more {
    }
 }
 
-.testimonial-slider-wrap #testimonial-nav > span {
+#testimonial-nav > span,
+#hotel-nav > span {
    cursor: pointer;
    position: absolute;
    width: 58px;
    height: 58px;
-   line-height: 58px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    border-radius: 50%;
-   background: rgba(59, 93, 80, 0.1);
+   background: rgba(255, 255, 255, 1);
    color: #2f2f2f;
    transition: 0.3s all ease;
 }
 
-.testimonial-slider-wrap #testimonial-nav > span:hover {
+#testimonial-nav > span:hover,
+#hotel-nav > span:hover {
    background: #3b5d50;
    color: #ffffff;
 }
 
-.testimonial-slider-wrap #testimonial-nav .prev {
+#testimonial-nav .prev,
+#hotel-nav .prev {
    left: -10px;
 }
 
-.testimonial-slider-wrap #testimonial-nav .next {
+#testimonial-nav .next,
+#hotel-nav .next {
    right: 0;
 }
 
