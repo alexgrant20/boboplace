@@ -23,18 +23,15 @@
                @endauth
                <li><a class="nav-link" href="{{url('/about-us')}}">About us</a></li>
                @auth
-                  <li><a class="nav-link" href="{{url('/profile')}}">Profile</a></li>
+                  <li><a class="nav-link" href="/update-profile/{{Auth::user()->id}}">Profile</a></li>
                @endauth
 
             </ul>
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                @auth
-                  <li><a class="nav-link" href="#"><img src="/images/user.svg"></a></li>
-                  <li><a class="nav-link" href="cart.html"><img src="/images/cart.svg"></a></li>
-                  <form action="/logout" method="post">
-                     <li><button type="submit"
-                           class="btn btn-danger rounded ms-3 py-1 px-2"style="font-size: 14px">Logout</button></li>
+                 <form action="/logout" method="post">
+                     <li><button type="submit" class="btn btn-danger rounded ms-3 py-1 px-2"style="font-size: 14px">Logout</button></li>
                   </form>
                @endauth
                @guest

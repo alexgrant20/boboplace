@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddHotelRequest;
+use App\Http\Requests\UpdateHotelFacilityRequest;
+use App\Http\Requests\UpdateHotelRequest;
 use App\Models\City;
 use App\Models\Facility;
 use App\Models\File;
@@ -96,6 +98,28 @@ class HotelController extends Controller
                      ->get();
 
       return view('admin.edithotel', compact('hotel', 'path', 'cities', 'cityName', 'facilities', 'facilityHotel'));
+   }
+
+   public function update(UpdateHotelRequest $request, Hotel $hotel){
+
+      $hotelUpdated = $request->safe()->toArray();
+      $hotel->update($hotelUpdated);
+
+      HotelFacility::where('hotel_id', $hotel->id)->delete();
+
+      $facilities = Facility::all();
+
+      foreach ($facilities as $facility) {
+         if ($request->has($facility->id)) {
+            HotelFacility::Create([
+               'hotel_id' => $hotel->id,
+               'facility_id' => $facility->id
+            ]);
+      }
+   }
+
+      return redirect('detailHotel/'.$hotel->id);
+
    }
 
    public function destroy(Hotel $hotel){
