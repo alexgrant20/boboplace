@@ -155,9 +155,9 @@ class DatabaseSeeder extends Seeder
          'path' => 'images/hotel/hj-3.jpeg',
       ]);
 
-      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 1]);
-      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 5]);
-      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 6]);
+      HotelFacility::create(['hotel_id' => 4, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 4, 'facility_id' => 5]);
+      HotelFacility::create(['hotel_id' => 4, 'facility_id' => 6]);
 
       Hotel::create([
          'name' => 'Swiss-Belhotel Cendrawasih Biak',
@@ -183,9 +183,9 @@ class DatabaseSeeder extends Seeder
          'path' => 'images/hotel/sbc-3.jpeg',
       ]);
 
-      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 1]);
-      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 3]);
-      HotelFacility::create(['hotel_id' => 3, 'facility_id' => 4]);
+      HotelFacility::create(['hotel_id' => 5, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 5, 'facility_id' => 3]);
+      HotelFacility::create(['hotel_id' => 5, 'facility_id' => 4]);
 
       Hotel::create([
          'name' => 'Puri Setiabudhi',
@@ -199,6 +199,25 @@ class DatabaseSeeder extends Seeder
          ',
          'city_id' => 2,
       ]);
+
+      File::create([
+         'hotel_id' => 6,
+         'path' => 'images/hotel/puriSetia1.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 6,
+         'path' => 'images/hotel/puriSetia2.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 6,
+         'path' => 'images/hotel/puriSetia3.jpg',
+      ]);
+
+      HotelFacility::create(['hotel_id' => 6, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 6, 'facility_id' => 5]);
+      HotelFacility::create(['hotel_id' => 6, 'facility_id' => 6]);
 
       Hotel::create([
          'name' => 'Pullman Bandung Grand Central',
@@ -214,6 +233,25 @@ class DatabaseSeeder extends Seeder
          'city_id' => 2,
       ]);
 
+      File::create([
+         'hotel_id' => 7,
+         'path' => 'images/hotel/pullman1.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 7,
+         'path' => 'images/hotel/pullman2.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 7,
+         'path' => 'images/hotel/pullman3.jpg',
+      ]);
+
+      HotelFacility::create(['hotel_id' => 7, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 7, 'facility_id' => 5]);
+      HotelFacility::create(['hotel_id' => 7, 'facility_id' => 6]);
+
       Hotel::create([
          'name' => 'Forest Hills Hotel',
          'rating' => '4',
@@ -228,6 +266,25 @@ class DatabaseSeeder extends Seeder
          'city_id' => 2,
       ]);
 
+      File::create([
+         'hotel_id' => 8,
+         'path' => 'images/hotel/frh1.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 8,
+         'path' => 'images/hotel/frh2.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 8,
+         'path' => 'images/hotel/frh3.jpg',
+      ]);
+
+      HotelFacility::create(['hotel_id' => 8, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 8, 'facility_id' => 5]);
+      HotelFacility::create(['hotel_id' => 8, 'facility_id' => 6]);
+
       Hotel::create([
          'name' => 'The Dago View Bandung',
          'rating' => '4',
@@ -240,6 +297,25 @@ class DatabaseSeeder extends Seeder
          ',
          'city_id' => 2,
       ]);
+
+      File::create([
+         'hotel_id' => 9,
+         'path' => 'images/hotel/tdv1.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 9,
+         'path' => 'images/hotel/tdv2.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 9,
+         'path' => 'images/hotel/tdv3.jpg',
+      ]);
+
+      HotelFacility::create(['hotel_id' => 9, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 9, 'facility_id' => 5]);
+      HotelFacility::create(['hotel_id' => 9, 'facility_id' => 6]);
 
       Hotel::create([
          'name' => 'Novotel Bandung',
@@ -255,6 +331,25 @@ class DatabaseSeeder extends Seeder
          ',
          'city_id' => 2,
       ]);
+
+      File::create([
+         'hotel_id' => 10,
+         'path' => 'images/hotel/novotel1.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 10,
+         'path' => 'images/hotel/novotel2.jpg',
+      ]);
+
+      File::create([
+         'hotel_id' => 10,
+         'path' => 'images/hotel/novotel3.jpg',
+      ]);
+
+      HotelFacility::create(['hotel_id' => 10, 'facility_id' => 1]);
+      HotelFacility::create(['hotel_id' => 10, 'facility_id' => 5]);
+      HotelFacility::create(['hotel_id' => 10, 'facility_id' => 6]);
 
       User::create(
          [
