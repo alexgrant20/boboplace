@@ -36,15 +36,11 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="{{ asset('images/Hotel1.jpg') }}" class="d-block rounded img-fluid" alt="..." style="min-height: 650px; object-fit: cover;">
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('images/Hotel2.jpg') }}" class="d-block rounded w-100" alt="..." style="min-height: 650px; object-fit: cover;">
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('images/Hotel1.jpg') }}" class="d-block rounded w-100" alt="..." style="min-height: 6500px; object-fit: cover;">
-          </div>
+          @foreach ($hotel->file as $file)
+            <div class="carousel-item active">
+              <img src="{{ asset($file->path) }}" class="d-block rounded img-fluid" alt="..." style="min-height: 650px; object-fit: cover;">
+            </div>
+          @endforeach
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -92,14 +88,12 @@
         <h4 class="border-bottom border-1 text-muted">Facilities</h4>
         <div class="col-8">
           <ul class="list-unstyled">
-            <li>
-              <i class="bi bi-wifi"></i>
-              <span>Free Wifi</span>
-            </li>
-            <li>
-              <i class="bi bi-taxi-front-fill"></i>
-              <span>Taxi Driver</span>
-            </li>
+            @foreach ($hotel->hotelFacility as $hf)
+               <li>
+                  <i class="{{$hf->facility->icon}}"></i>
+                  <span>{{$hf->facility->name}}</span>
+               </li>
+            @endforeach
           </ul>
         </div>
         <div class="col-4" class="d-flex">

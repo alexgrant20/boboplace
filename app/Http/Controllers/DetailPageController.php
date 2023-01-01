@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use App\Models\Hotel;
+use App\Models\HotelFacility;
 use Illuminate\Http\Request;
 
 class DetailPageController extends Controller
 {
     public function viewDetail(Hotel $hotel)
     {
+      $file = File::all();
+      $hotelFacility = HotelFacility::all();
+      $hotel->load('file');
+      $hotel->load('hotelFacility');
+      // dd($hotel);
       return view('detail', compact('hotel'));
     }
 
