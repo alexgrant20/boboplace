@@ -129,55 +129,6 @@
 </div>
 @endsection
 
-{{-- <script>
-   function previewImage(input) {
-       if (input.files && input.files[0]) {
-           var reader = new FileReader();
-           reader.onload = function(e) {
-               $('#preview').attr('src', e.target.result).show();
-           }
-           reader.readAsDataURL(input.files[0]);
-       }
-   }
-   </script> --}}
-
-   {{-- <script>
-      const fileInput = document.getElementById('fileInput');
-
-      fileInput.addEventListener('change', function() {
-        const file = fileInput.files[0];
-        fileInput.style.backgroundImage = `url(${URL.createObjectURL(file)})`;
-        const reader = new FileReader();
-
-        reader.addEventListener('load', function() {
-          fileInput.style.backgroundImage = `url(${reader.result})`;
-        });
-
-        reader.readAsDataURL(file);
-      });
-    </script> --}}
-{{--
-    <script>
-      function previewImage(input) {
-        // Clear the preview container
-        $('#preview-container').html('');
-
-        // Check if the file is an image
-        if (input.files && input.files[0]) {
-          for (let i = 0; i < input.files.length; i++) {
-            if (input.files[i].type.match('image.*')) {
-              // Read the file and add it to the preview container
-              const reader = new FileReader();
-              reader.onload = function(e) {
-                $('#preview-container').append(`<img src="${e.target.result}" class="img-fluid">`);
-              }
-              reader.readAsDataURL(input.files[i]);
-            }
-          }
-        }
-      }
-      </script> --}}
-
       <script>
          function previewImage(input) {
              if (input.files && input.files[0]) {
