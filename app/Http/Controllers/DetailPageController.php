@@ -15,7 +15,6 @@ class DetailPageController extends Controller
       $hotelFacility = HotelFacility::all();
       $hotel->load('file');
       $hotel->load('hotelFacility');
-      // dd($hotel);
       return view('detail', compact('hotel'));
     }
 
