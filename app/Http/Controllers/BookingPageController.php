@@ -12,95 +12,116 @@ use Illuminate\Support\Str;
 
 class BookingPageController extends Controller
 {
-  public function edit(Transaction $transaction)
-  {
-    if ($transaction->payment_type_id) abort(404);
-    if ($transaction->user_id !== auth()->user()->id) abort(401);
+   public function edit(Transaction $transaction)
+   {
+      if ($transaction->payment_type_id) abort(404);
+      if ($transaction->user_id !== auth()->user()->id) abort(401);
 
-    return view('app.member.booking.index', compact('transaction'));
-  }
+      return view('app.member.booking.index', compact('transaction'));
+   }
 
-  public function update(Request $request, Transaction $transaction)
-  {
-    $request->validate([
-      'name' => 'required',
-      'phone_number' => 'required',
-      'email' => 'required|email',
-      'identity_number' => 'required'
-    ]);
+   public function store(Request $request)
+   {
+      $date = explode('-', $request->datetimes);
 
-    try {
-      $transaction->update([
-        'name' => $request->name,
-        'phone_number' => $request->phone_number,
-        'email' => $request->email,
-        'identity_number' => $request->identity_number,
+      $checkInDate = date('Y-m-d', strtotime($date[0]));
+      $checkOutDate = date('Y-m-d', strtotime($date[1]));
+
+      $transaction = Transaction::create([
+         'user_id' => Auth::id(),
+         'checkin_date' => $checkInDate,
+         'checkout_date' => $checkOutDate,
+         'hotel_id' => $request->hotel_id,
+         'status_id' => 1,
+         'transaction_date' => now(),
+         'total_adult' => $request->total_adult,
+         'total_children' => $request->total_children,
       ]);
-    } catch (\Exception) {
+
+      return to_route('booking.edit', $transaction->id);
+   }
+
+   public function update(Request $request, Transaction $transaction)
+   {
+      $request->validate([
+         'name' => 'required',
+         'phone_number' => 'required',
+         'email' => 'required|email',
+         'identity_number' => 'required'
+      ]);
+
+      try {
+         $transaction->update([
+            'name' => $request->name,
+            'phone_number' => $request->phone_number,
+            'email' => $request->email,
+            'identity_number' => $request->identity_number,
+         ]);
+      } catch (\Exception) {
+         return response()->json([
+            'status' => 400,
+         ]);
+      }
+
       return response()->json([
-        'status' => 400,
+         'status' => 200,
+         'name' => $request->name,
+         'phone_number' => $request->phone_number,
+         'email' => $request->email,
       ]);
-    }
+   }
 
-    return response()->json([
-      'status' => 200,
-      'name' => $request->name,
-      'phone_number' => $request->phone_number,
-      'email' => $request->email,
-    ]);
-  }
+   public function finalize(Request $request, Transaction $transaction)
+   {
+      $price = $transaction->hotel->price;
+      $tax = $price * 0.1;
+      $totalPrice = $price + $tax;
 
-  public function finalize(Request $request, Transaction $transaction)
-  {
-    $price = $transaction->hotel->price;
-    $tax = $price * 0.1;
-    $totalPrice = $price + $tax;
+      $paymentType = PaymentType::where('name', $request->payment_type)->first();
 
-    $paymentType = PaymentType::where('name', $request->payment_type)->first();
+      $ticketNumber = 'BOBO' . Str::random(20) . time();
 
-    $ticketNumber = 'BOBO' . Str::random(20) . time();
+      try {
+         $transaction = tap($transaction)->update([
+            'total_payment' => $totalPrice,
+            'status_id' => 2,
+            'payment_type_id' => $paymentType->id,
+            'ticket_number' => $ticketNumber,
+         ])->load('hotel');
+      } catch (\Exception) {
+         return response()->json([
+            'status' => 400
+         ]);
+      }
 
-    try {
-      $transaction = tap($transaction)->update([
-        'total_payment' => $totalPrice,
-        'status_id' => 2,
-        'payment_type_id' => $paymentType->id,
-        'ticket_number' => $ticketNumber,
-      ])->load('hotel');
-    } catch (\Exception) {
+      Session::put('transaction', $transaction->toArray());
+
       return response()->json([
-        'status' => 400
+         'status' => 200,
       ]);
-    }
+   }
 
-    Session::put('transaction', $transaction->toArray());
+   public function printTicket()
+   {
+      $transaction = Session::get('transaction');
 
-    return response()->json([
-      'status' => 200,
-    ]);
-  }
+      $pdf = \PDF::loadView('app.pdf.e-ticket', compact('transaction'));
 
-  public function printTicket()
-  {
-    $transaction = Session::get('transaction');
+      $name = $transaction['ticket_number'] . '.pdf';
 
-    $pdf = \PDF::loadView('app.pdf.e-ticket', compact('transaction'));
+      $fullName = 'public/e-ticket/' . $name;
 
-    $name = $transaction['ticket_number'] . '.pdf';
+      $content = $pdf->download()->getOriginalContent();
+      Storage::put($fullName, $content);
 
-    $fullName = 'public/e-ticket/' . $name;
+      Transaction::find($transaction['id'])->update(['ticket' => $fullName]);
 
-    $content = $pdf->download()->getOriginalContent();
-    Storage::put($fullName, $content);
+      return redirect(asset('/storage/e-ticket/' . $name));
+   }
 
-    Transaction::find($transaction['id'])->update(['ticket' => $fullName]);
-
-    return redirect(asset('/storage/e-ticket/' . $name));
-  }
-
-  public function history()
-  {
-    $bookingTransaction = Transaction::where('user_id', Auth::id())->with('hotel.file')->get();
-    return view('booking_history', compact('bookingTransaction'));
-  }
+   public function history()
+   {
+      $bookingTransaction = Transaction::where('user_id', Auth::id())->with('hotel.file')->get();
+      return view('booking_history', compact('bookingTransaction'));
+   }
 }
