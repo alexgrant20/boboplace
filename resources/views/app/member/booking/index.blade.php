@@ -163,10 +163,18 @@
                           </div>
                         </div>
                       </div>
+                      @php
+                        $facility = $transaction->hotel->hotelFacility;
+                        $firstFacility = $facility->first()->facility;
+                        $totalFacility = $facility->count() - 1;
+                      @endphp
                       <h2 class="fs-6 border-bottom pb-1">Facilities</h2>
                       <div class="d-flex gap-1 align-items-center">
-                        <i class="fa-solid fa-wifi text-success"></i>
-                        <span>Free Wi-fi</span>
+                        <i class="{{ $firstFacility->icon }} text-success"></i>
+                        {{ $firstFacility->name }}
+                      </div>
+                      <div class="fw-bold">
+                        +{{ $totalFacility }} More
                       </div>
                     </div>
                   </div>

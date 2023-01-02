@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PaymentType;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -99,7 +100,7 @@ class BookingPageController extends Controller
 
   public function history()
   {
-    $bookingTransaction = Transaction::with('hotel.file')->get();
+    $bookingTransaction = Transaction::where('user_id', Auth::id())->with('hotel.file')->get();
     return view('booking_history', compact('bookingTransaction'));
   }
 }

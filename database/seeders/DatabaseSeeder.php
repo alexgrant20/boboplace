@@ -31,8 +31,8 @@ class DatabaseSeeder extends Seeder
 
     Facility::create(['name' => 'Wi-Fi', 'icon' => 'bi bi-wifi']);
     Facility::create(['name' => 'Toilet',  'icon' => 'fa-solid fa-toilet']);
-    Facility::create(['name' => 'Window',  'icon' => 'fa-light fa-window-frame']);
-    Facility::create(['name' => 'BBQ facilities', 'icon' => 'fa-solid fa-grill-hot']);
+    Facility::create(['name' => 'Window',  'icon' => 'fa-solid fa-window-frame']);
+    Facility::create(['name' => 'BBQ facilities', 'icon' => 'fa-solid fa-fire']);
     Facility::create(['name' => 'Swimming pool',  'icon' => 'fa-solid fa-person-swimming']);
     Facility::create(['name' => 'Bar', 'icon' => 'fa-solid fa-martini-glass']);
 

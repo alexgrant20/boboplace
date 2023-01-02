@@ -23,13 +23,13 @@
    };
    tinyslider();
 
-   var hotelSlider = function () {
-      var el = document.querySelectorAll(".hotel-slider");
+   const hotelSlider = function () {
+      const el = document.querySelectorAll(".hotel-slider");
 
       if (el.length > 0) {
-         var slyder = tns({
+         const slyder = tns({
             container: ".hotel-slider",
-            items: 5,
+            items: 7,
             axis: "horizontal",
             slideBy: "page",
             controlsContainer: "#hotel-nav",
