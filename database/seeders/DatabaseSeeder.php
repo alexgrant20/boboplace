@@ -35,6 +35,8 @@ class DatabaseSeeder extends Seeder
     Facility::create(['name' => 'BBQ facilities', 'icon' => 'fa-solid fa-fire']);
     Facility::create(['name' => 'Swimming pool',  'icon' => 'fa-solid fa-person-swimming']);
     Facility::create(['name' => 'Bar', 'icon' => 'fa-solid fa-martini-glass']);
+    Facility::create(['name' => 'Spa', 'icon' => 'fa-solid fa-spa']);
+    Facility::create(['name' => 'Restaurant', 'icon' => 'fa-solid fa-user-chef']);
 
     City::create(['name' => 'Jakarta']);
     City::create(['name' => 'Bandung']);
@@ -42,6 +44,7 @@ class DatabaseSeeder extends Seeder
     City::create(['name' => 'Bogor']);
     City::create(['name' => 'Bekasi']);
     City::create(['name' => 'Jayapura']);
+    City::create(['name' => 'Bali']);
 
     Hotel::create([
       'name' => 'Swiss-Belhotel Papua',
@@ -350,6 +353,201 @@ class DatabaseSeeder extends Seeder
     HotelFacility::create(['hotel_id' => 10, 'facility_id' => 1]);
     HotelFacility::create(['hotel_id' => 10, 'facility_id' => 5]);
     HotelFacility::create(['hotel_id' => 10, 'facility_id' => 6]);
+
+    Hotel::create([
+      'name' => 'The Apurva Kempinski Bali',
+      'rating' => '5',
+      'price' => '7603882',
+      'full_address' => 'lot 4, Jl. Raya Nusa Dua Selatan, Benoa, Kec. Kuta Sel., Kabupaten Badung, Bali',
+      'description' => 'When it comes to staying in Bali, most can agree that the Apurva Kempinski Bali atop the magnificent Nusa Dua cliff is one of the best choices, regardless of your traveling purpose. The resort offers spacious rooms and free WiFi throughout.
+
+      Defining the true epitome of high-class beachfront stay, the hotel presents all guests with picturesque sceneries of the on-site tropical garden and the vast Indian Ocean. With 475 stylish and airy rooms, The Apurva Kempinski Bali features complete amenities such as a flat-screen TV, telephone, slippers, coffee/tea maker, mini bar, a desk, sofa, ironing facilities, and a safety deposit box. The ensuite bathroom comes with complimentary toiletries and a hairdryer.
+
+      Apart from its 3 lounges and 4 restaurants, the 2019-launched property also provides many other facilities for all guests. Some of which are swimming pools, airport shuttle, fitness center, waterslide, beach chairs and umbrellas, baggage storage, concierge service, currency exchange and a 24-hour front desk.
+
+      For those with an artistic soul, the on-site Asha Curated Boutique & Gallery is a celebrated stage for craftsmanship and creativity that spans across the prosperous nation.
+
+      Regarding accessibility, The Apurva Kempinski Bali is close to attractive spots like Sawangan Beach located 1.2 km away. If you need assistance to reach other places, the front desk will be happy to assist and ensure your exploration is going as smoothly as possible. Ngurah Rai International Airport is 16.4 km away.',
+      'city_id' => 7,
+    ]);
+
+    File::create([
+      'hotel_id' => 11,
+      'path' => '/storage/hotel/apurva1.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 11,
+      'path' => '/storage/hotel/apurva2.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 11,
+      'path' => '/storage/hotel/apurva3.png',
+    ]);
+
+    HotelFacility::create(['hotel_id' => 11, 'facility_id' => 1]);
+    HotelFacility::create(['hotel_id' => 11, 'facility_id' => 2]);
+    HotelFacility::create(['hotel_id' => 11, 'facility_id' => 5]);
+    HotelFacility::create(['hotel_id' => 11, 'facility_id' => 7]);
+    HotelFacility::create(['hotel_id' => 11, 'facility_id' => 8]);
+
+
+    Hotel::create([
+      'name' => 'Diamond Hotel Kuta Bali',
+      'rating' => '4',
+      'price' => '465000',
+      'full_address' => 'Jl. Raya Kuta No 39, Kuta Badung Bali',
+      'description' => 'Diamond Hotel Kuta Bali Located on Jalan Raya Kuta, easy way to a new development business district Sunset Road and Denpasar City, as well as famous Kuta Beach, Legian, and Seminyak.
+      The hotel features 168 brand new rooms and all rooms are well designed for everythng you need for a great stay. Exeprience our quality bedding. Recharge after along day with our power shower equipeed with a 3-head massage shower head and everything in control with our self laundry facility.
+
+      Nearby Attraction:
+      15 min away to water activity Waterboom Park
+      15 min to Legian and Seminyak Night Club
+      30 min drive to Sanur to enjoy the sunrise
+
+      Nearby Restaurant
+      5 min walk to Dewi Sri Food Center
+      20 min to Jimbaran Beach to enjoy Sunset and Dinner
+
+      Nearby Shop
+      5 min to Trans Studio Mall Shopping Center
+      10 min to Beachwalk Supermall
+      10 min to Carefour and Bali Gallery Shopping Park',
+      'city_id' => 7,
+    ]);
+
+    File::create([
+      'hotel_id' => 12,
+      'path' => '/storage/hotel/diamond1.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 12,
+      'path' => '/storage/hotel/diamond2.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 12,
+      'path' => '/storage/hotel/diamond3.png',
+    ]);
+
+    HotelFacility::create(['hotel_id' => 12, 'facility_id' => 1]);
+    HotelFacility::create(['hotel_id' => 12, 'facility_id' => 2]);
+    HotelFacility::create(['hotel_id' => 12, 'facility_id' => 3]);
+    HotelFacility::create(['hotel_id' => 12, 'facility_id' => 5]);
+
+
+    Hotel::create([
+      'name' => 'The Anvaya Beach Resort Bali',
+      'rating' => '5',
+      'price' => '1817592',
+      'full_address' => 'Jl. Kartika PlazaTuban',
+      'description' => 'Nestled right on the shorelines of Kuta Beach in Bali, The Anvaya Resort Bali presents an elegant getaway just a 5-minute walk from the famous Waterbom waterpark. It also offers an outdoor swimming pool, a spa, and meeting facilities. Complimentary WiFi access is available in all areas of the property.
+
+      Boasting a contemporary design, every room is air-conditioned and fitted with a flat-screen cable TV. There is also tea/coffee making facilities, a personal safe and a seating area provided in all rooms. The private en suite bathroom comes with shower facilities and free toiletries. Certain units provide a much larger space with multiple bedrooms, a living room and a private outdoor pool
+
+      The hotel Kunyit Restaurant serves an array of delectable Balinese and Indonesian dishes while guests can enjoy scrumptious international cuisine with selections of wine at the beachfront Sands And Wine Cellar. For a more relaxed atmosphere, the Leisure Deck is the perfect place to enjoy sunset sessions.
+
+      Other facilities available at this hotel include a fitness centre and free on-site private parking for guests who drive. The staff at the 24-hour front desk can assist guests with laundry requests, luggage storage, car hire and day tour arrangements at additional charges.
+
+      The lively Seminyak Beach is about a 20-minute drive from The Anvaya Resort Bali while Garuda Wisnu Kencana Cultural Park is about a 30-minute drive away. Ngurah Rai International Airport is reachable within a 10-minute drive and airport shuttle service is available at a fee.',
+      'city_id' => 7,
+    ]);
+
+    File::create([
+      'hotel_id' => 13,
+      'path' => '/storage/hotel/anvaya1.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 13,
+      'path' => '/storage/hotel/anvaya2.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 13,
+      'path' => '/storage/hotel/anvaya3.png',
+    ]);
+
+    HotelFacility::create(['hotel_id' => 13, 'facility_id' => 1]);
+    HotelFacility::create(['hotel_id' => 13, 'facility_id' => 2]);
+    HotelFacility::create(['hotel_id' => 13, 'facility_id' => 5]);
+    HotelFacility::create(['hotel_id' => 13, 'facility_id' => 7]);
+    HotelFacility::create(['hotel_id' => 13, 'facility_id' => 8]);
+
+    Hotel::create([
+      'name' => 'Lovina Beach Club & Resort',
+      'rating' => '5',
+      'price' => '845000',
+      'full_address' => 'Jl. Seririt- Singaraja, Tukadmungga, Kec. Buleleng, Kabupaten Buleleng, Bali',
+      'description' => 'About Lovina Beach Club & Resort
+      Lovina Beach Club & Resort is a five star beach located. This elegant resort presents a beautiful view of the ocean with a natural and fresh atmosphere. The right accommodation for a place to rest when you vacation with family.
+
+      Lovina Beach Club & Resort Location
+      Lovina Beach Club & Resort is conveniently located near Lovina Beach and Pura Segara Tukadmungga Temple. The place is suitable for you who want to more easily visit every interesting place while in Bali.',
+      'city_id' => 7,
+    ]);
+
+    File::create([
+      'hotel_id' => 14,
+      'path' => '/storage/hotel/lovina1.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 14,
+      'path' => '/storage/hotel/lovina2.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 14,
+      'path' => '/storage/hotel/lovina3.png',
+    ]);
+
+    HotelFacility::create(['hotel_id' => 14, 'facility_id' => 1]);
+    HotelFacility::create(['hotel_id' => 14, 'facility_id' => 2]);
+    HotelFacility::create(['hotel_id' => 14, 'facility_id' => 4]);
+    HotelFacility::create(['hotel_id' => 14, 'facility_id' => 5]);
+    HotelFacility::create(['hotel_id' => 14, 'facility_id' => 6]);
+    HotelFacility::create(['hotel_id' => 14, 'facility_id' => 7]);
+    HotelFacility::create(['hotel_id' => 14, 'facility_id' => 8]);
+
+    Hotel::create([
+      'name' => 'The Edge Bali',
+      'rating' => '5',
+      'price' => '11457746',
+      'full_address' => 'Jalan Pura Goa Lempeh, Banjar Dinas Kangin, Uluwatu',
+      'description' => 'Situated on a cliff overlooking the ocean, THE edge Bali offers luxurious 5-star villas with private pools, home entertainment systems and free WiFi. It features a world-class spa and fitness centre.
+      Boasting 2 private pools, spacious villas feature state-of-the-art entertainment systems in a private home theatre. They have a well-equipped kitchen, wine cellar and cigar lounge. Guests can lounge in the villa’s tropical garden or on the private sundeck.
+      Relaxing body treatments await guests at The Edge’s spa, which features private steam baths and sweeping ocean views. Personal villa butlers can help with travel and entertainment arrangements.
+      Personal butlers prepare and serve breakfast in the villas’ private kitchens. Personally tailored gourmet menus featuring fresh seafood and European dishes are handcrafted by the executive chef. An extensive wine list is available.
+      THE edge Bali is a 45-minute drive from Ngurah Rai International Airport. There is an international standard golf course located 3 km from the hotel.',
+      'city_id' => 7,
+    ]);
+
+    File::create([
+      'hotel_id' => 15,
+      'path' => '/storage/hotel/edge1.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 15,
+      'path' => '/storage/hotel/edge2.png',
+    ]);
+
+    File::create([
+      'hotel_id' => 15,
+      'path' => '/storage/hotel/edge3.png',
+    ]);
+
+    HotelFacility::create(['hotel_id' => 15, 'facility_id' => 1]);
+    HotelFacility::create(['hotel_id' => 15, 'facility_id' => 2]);
+    HotelFacility::create(['hotel_id' => 15, 'facility_id' => 3]);
+    HotelFacility::create(['hotel_id' => 15, 'facility_id' => 4]);
+    HotelFacility::create(['hotel_id' => 15, 'facility_id' => 5]);
+    HotelFacility::create(['hotel_id' => 15, 'facility_id' => 6]);
+    HotelFacility::create(['hotel_id' => 15, 'facility_id' => 7]);
+    HotelFacility::create(['hotel_id' => 15, 'facility_id' => 8]);
 
     User::create(
       [
