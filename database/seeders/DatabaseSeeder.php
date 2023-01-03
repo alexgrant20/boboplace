@@ -31,12 +31,12 @@ class DatabaseSeeder extends Seeder
 
     Facility::create(['name' => 'Wi-Fi', 'icon' => 'bi bi-wifi']);
     Facility::create(['name' => 'Toilet',  'icon' => 'fa-solid fa-toilet']);
-    Facility::create(['name' => 'Window',  'icon' => 'fa-solid fa-window-frame']);
+    Facility::create(['name' => 'Window',  'icon' => 'fa-solid fa-house-chimney-window']);
     Facility::create(['name' => 'BBQ facilities', 'icon' => 'fa-solid fa-fire']);
     Facility::create(['name' => 'Swimming pool',  'icon' => 'fa-solid fa-person-swimming']);
     Facility::create(['name' => 'Bar', 'icon' => 'fa-solid fa-martini-glass']);
     Facility::create(['name' => 'Spa', 'icon' => 'fa-solid fa-spa']);
-    Facility::create(['name' => 'Restaurant', 'icon' => 'fa-solid fa-user-chef']);
+    Facility::create(['name' => 'Restaurant', 'icon' => 'fa-solid fa-utensils']);
 
     City::create(['name' => 'Jakarta']);
     City::create(['name' => 'Bandung']);
