@@ -54,17 +54,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 1,
-      'path' => 'images/hotel/sbp-1.jpg',
+      'path' => '/storage/hotel/sbp-1.jpg',
     ]);
 
     File::create([
       'hotel_id' => 1,
-      'path' => 'images/hotel/sbp-2.jpeg',
+      'path' => '/storage/hotel/sbp-2.jpeg',
     ]);
 
     File::create([
       'hotel_id' => 1,
-      'path' => 'images/hotel/sbp-3.jpeg',
+      'path' => '/storage/hotel/sbp-3.jpeg',
     ]);
 
     HotelFacility::create(['hotel_id' => 1, 'facility_id' => 1]);
@@ -83,17 +83,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 2,
-      'path' => 'images/hotel/ajh-1.jpeg',
+      'path' => '/storage/hotel/ajh-1.jpeg',
     ]);
 
     File::create([
       'hotel_id' => 2,
-      'path' => 'images/hotel/ajh-2.jpg',
+      'path' => '/storage/hotel/ajh-2.jpg',
     ]);
 
     File::create([
       'hotel_id' => 2,
-      'path' => 'images/hotel/ajh-3.jpeg',
+      'path' => '/storage/hotel/ajh-3.jpeg',
     ]);
 
     HotelFacility::create(['hotel_id' => 2, 'facility_id' => 1]);
@@ -114,17 +114,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 3,
-      'path' => 'images/hotel/sbm-1.jpeg',
+      'path' => '/storage/hotel/sbm-1.jpeg',
     ]);
 
     File::create([
       'hotel_id' => 3,
-      'path' => 'images/hotel/sbm-2.jpeg',
+      'path' => '/storage/hotel/sbm-2.jpeg',
     ]);
 
     File::create([
       'hotel_id' => 3,
-      'path' => 'images/hotel/sbm-3.jpg',
+      'path' => '/storage/hotel/sbm-3.jpg',
     ]);
 
     HotelFacility::create(['hotel_id' => 3, 'facility_id' => 1]);
@@ -142,17 +142,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 4,
-      'path' => 'images/hotel/hj-1.jpg',
+      'path' => '/storage/hotel/hj-1.jpg',
     ]);
 
     File::create([
       'hotel_id' => 4,
-      'path' => 'images/hotel/hj-2.jpeg',
+      'path' => '/storage/hotel/hj-2.jpeg',
     ]);
 
     File::create([
       'hotel_id' => 4,
-      'path' => 'images/hotel/hj-3.jpeg',
+      'path' => '/storage/hotel/hj-3.jpeg',
     ]);
 
     HotelFacility::create(['hotel_id' => 4, 'facility_id' => 1]);
@@ -170,17 +170,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 5,
-      'path' => 'images/hotel/sbc-1.jpeg',
+      'path' => '/storage/hotel/sbc-1.jpeg',
     ]);
 
     File::create([
       'hotel_id' => 5,
-      'path' => 'images/hotel/`sbc-2.jpeg',
+      'path' => '/storage/hotel/`sbc-2.jpeg',
     ]);
 
     File::create([
       'hotel_id' => 5,
-      'path' => 'images/hotel/sbc-3.jpeg',
+      'path' => '/storage/hotel/sbc-3.jpeg',
     ]);
 
     HotelFacility::create(['hotel_id' => 5, 'facility_id' => 1]);
@@ -202,17 +202,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 6,
-      'path' => 'images/hotel/puriSetia1.jpg',
+      'path' => '/storage/hotel/puriSetia1.jpg',
     ]);
 
     File::create([
       'hotel_id' => 6,
-      'path' => 'images/hotel/puriSetia2.jpg',
+      'path' => '/storage/hotel/puriSetia2.jpg',
     ]);
 
     File::create([
       'hotel_id' => 6,
-      'path' => 'images/hotel/puriSetia3.jpg',
+      'path' => '/storage/hotel/puriSetia3.jpg',
     ]);
 
     HotelFacility::create(['hotel_id' => 6, 'facility_id' => 1]);
@@ -235,17 +235,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 7,
-      'path' => 'images/hotel/pullman1.jpg',
+      'path' => '/storage/hotel/pullman1.jpg',
     ]);
 
     File::create([
       'hotel_id' => 7,
-      'path' => 'images/hotel/pullman2.jpg',
+      'path' => '/storage/hotel/pullman2.jpg',
     ]);
 
     File::create([
       'hotel_id' => 7,
-      'path' => 'images/hotel/pullman3.jpg',
+      'path' => '/storage/hotel/pullman3.jpg',
     ]);
 
     HotelFacility::create(['hotel_id' => 7, 'facility_id' => 1]);
@@ -268,17 +268,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 8,
-      'path' => 'images/hotel/frh1.jpg',
+      'path' => '/storage/hotel/frh1.jpg',
     ]);
 
     File::create([
       'hotel_id' => 8,
-      'path' => 'images/hotel/frh2.jpg',
+      'path' => '/storage/hotel/frh2.jpg',
     ]);
 
     File::create([
       'hotel_id' => 8,
-      'path' => 'images/hotel/frh3.jpg',
+      'path' => '/storage/hotel/frh3.jpg',
     ]);
 
     HotelFacility::create(['hotel_id' => 8, 'facility_id' => 1]);
@@ -300,17 +300,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 9,
-      'path' => 'images/hotel/tdv1.jpg',
+      'path' => '/storage/hotel/tdv1.jpg',
     ]);
 
     File::create([
       'hotel_id' => 9,
-      'path' => 'images/hotel/tdv2.jpg',
+      'path' => '/storage/hotel/tdv2.jpg',
     ]);
 
     File::create([
       'hotel_id' => 9,
-      'path' => 'images/hotel/tdv3.jpg',
+      'path' => '/storage/hotel/tdv3.jpg',
     ]);
 
     HotelFacility::create(['hotel_id' => 9, 'facility_id' => 1]);
@@ -334,17 +334,17 @@ class DatabaseSeeder extends Seeder
 
     File::create([
       'hotel_id' => 10,
-      'path' => 'images/hotel/novotel1.jpg',
+      'path' => '/storage/hotel/novotel1.jpg',
     ]);
 
     File::create([
       'hotel_id' => 10,
-      'path' => 'images/hotel/novotel2.jpg',
+      'path' => '/storage/hotel/novotel2.jpg',
     ]);
 
     File::create([
       'hotel_id' => 10,
-      'path' => 'images/hotel/novotel3.jpg',
+      'path' => '/storage/hotel/novotel3.jpg',
     ]);
 
     HotelFacility::create(['hotel_id' => 10, 'facility_id' => 1]);
