@@ -131,7 +131,7 @@ class RegisLoginController extends Controller
         'profile_picture' => $request->file('profile_picture')->store('profile', 'public')
       ]);
     }
-    return redirect('/');
+    return redirect('/')->with('success-swal', 'Profile Updated');
   }
 
   public function edit($id)
@@ -153,6 +153,6 @@ class RegisLoginController extends Controller
       'email' => $request->email,
       'phone_number' => $request->phone_number
     ]);
-    return redirect('/');
+    return redirect('/')->with('success-swal', 'Profile Updated');
   }
 }

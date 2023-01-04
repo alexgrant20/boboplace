@@ -4,13 +4,15 @@
 <x-layout.head></x-layout.head>
 
 <body>
-   <x-layout.navigation></x-layout.navigation>
+  <x-layout.navigation></x-layout.navigation>
 
-   <main class="container-fluid px-5 py-5">
-      @yield('content')
-   </main>
+  <main class="container-fluid px-5 py-5">
+    @yield('content')
+  </main>
 
-   <x-layout.footer></x-layout.footer>
+  <x-layout.footer></x-layout.footer>
+  @include('components.layout.additional')
+  @yield('js-foot')
 </body>
 
 </html>
