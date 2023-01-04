@@ -60,7 +60,7 @@
         </div>
         <div class="hotel-slider" style="height: 350px">
           @foreach ($hotels as $hotel)
-            <a href="{{ route('hotel.detail', $hotel->id) }}"
+            <a href="{{ route('hotel.show', $hotel->id) }}"
               class="card rounded-4 shadow-sm overflow-hidden ms-3 text-decoration-none" style="min-height: 100%">
               <img src="{{ asset(@$hotel->file->first()->path) }}" alt="Image" class="w-100" height="200px">
               <div class="px-2 py-3">
@@ -155,7 +155,7 @@
       <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
         @foreach ($hotels as $hotel)
           <div class="mb-3" style="width: 16rem">
-            <a href="{{ route('hotel.detail', $hotel->id) }}"
+            <a href="{{ route('hotel.show', $hotel->id) }}"
               class="card rounded-4 shadow-sm overflow-hidden text-decoration-none d-flex flex-column"
               style="min-height: 100%">
               <img src="{{ asset(@$hotel->file->first()->path) }}" alt="Image" class="w-100" height="200px">

@@ -19,7 +19,6 @@ class HotelController extends Controller
   public function __construct()
   {
     $this->middleware('role:admin', ['only' => ['create', 'store', 'destroy', 'edit']]);
-    $this->middleware('auth', ['only' => ['show']]);
   }
 
   public function show(Hotel $hotel)
@@ -122,7 +121,7 @@ class HotelController extends Controller
       }
     }
 
-    return redirect('detailHotel/' . $hotel->id);
+    return to_route('hotel.show', $hotel->id)->with('success-swal', 'Hotel updated');
   }
 
 
@@ -131,6 +130,6 @@ class HotelController extends Controller
     HotelFacility::where('hotel_id', $hotel->id)->delete();
     $hotel->delete();
 
-    return redirect('/');
+    return to_route('home')->with('success-swal', 'Hotel Deleted');
   }
 }

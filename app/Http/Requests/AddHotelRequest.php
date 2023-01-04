@@ -16,12 +16,12 @@ class AddHotelRequest extends FormRequest
     return [
       // 'image' => 'required|image',
       // 'image.*' => 'required|image|mimes:png,jpg,jpeg',
-      'name' => 'required|between:5,20',
+      'name' => 'required|between:5,100',
       'city' => 'required',
       'rating' => 'required|integer',
       'full_address' => 'required|min:5',
       'description' => 'required|min:5',
-      'price' => 'required|integer|gte:100000'
+      'price' => 'required|integer|between:100000, 10000000'
     ];
   }
 }

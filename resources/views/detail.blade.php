@@ -31,12 +31,11 @@
     <div class="col-lg-4">
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
+          @foreach ($hotel->file as $file)
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $loop->index }}"
+              class="active" aria-current="{{ $loop->first ? true : false }}"
+              aria-label="Slide {{ $loop->iteration }}"></button>
+          @endforeach
         </div>
         <div class="carousel-inner">
           @foreach ($hotel->file as $file)
