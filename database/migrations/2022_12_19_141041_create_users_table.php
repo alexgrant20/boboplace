@@ -13,6 +13,7 @@ return new class extends Migration
       $table->foreignId('role_id')->constrained()->onDelete('cascade');
       $table->string('username');
       $table->string('email')->unique();
+      $table->string('remember_token')->nullable();
       $table->string('password');
       $table->string('phone_number');
       $table->dateTime('is_email_verified')->nullable();
