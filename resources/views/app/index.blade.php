@@ -101,7 +101,8 @@
         @foreach ($hotels as $hotel)
           <div class="col-md-2">
             <a href="{{ route('hotel.show', $hotel->id) }}"
-              class="card rounded-4 shadow-sm overflow-hidden text-decoration-none d-flex flex-column">
+              class="card rounded-4 shadow-sm overflow-hidden text-decoration-none d-flex flex-column"
+              style="min-height: 100%">
               <img src="{{ asset(@$hotel->file->first()->path) }}" alt="Image" class="w-100" height="200px">
               <div class="px-2 py-3 d-flex flex-column flex-grow-1">
                 <h3 class="fs-6 flex-grow-1">{{ $hotel->name }}</h3>
