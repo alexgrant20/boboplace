@@ -25,11 +25,7 @@
       </div>
 
       <ul class="list-unstyled custom-social">
-        <li><a href="https://web.facebook.com/rickroll548" target="_blank"><span
-              class="fa fa-brands fa-facebook-f fa-2x"></span></a></li>
-        <li><a href="https://twitter.com/rickroll" target="_blank"><span
-              class="fa fa-brands fa-twitter fa-2x"></span></a></li>
-        <li><a href="https://www.instagram.com/rick_astley_memes/?hl=id" target="_blank"><span
+        <li><a href="https://www.instagram.com/boboplace_/?hl=id" target="_blank"><span
               class="fa fa-brands fa-instagram fa-2x"></span></a></li>
       </ul>
     </div>

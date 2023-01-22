@@ -1,3 +1,6 @@
+BoboPlace
+Sebuah aplikasi hotel yang membantu user untuk melakukan booking ke hotel faavoritnya
+
 About Us
 Project Member Team:
 
