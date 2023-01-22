@@ -158,10 +158,11 @@
       <div class="row justify-content-between">
         <div class="col-lg-8">
           <h2 class="section-title">Why Choose Us</h2>
-          <p class="fs-5">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate
-            velit
-            imperdiet
-            dolor tempor tristique.</p>
+          <p class="fs-5">
+            boboplace is one of the largest and most advantages Metasearch hotels in the world. The goal of boboplace is
+            to make it easier to find the ideal hotel, because the site compares prices and reviews of hotels all over the
+            world.
+          </p>
 
           <div class="row my-5">
             <div class="col-6 col-md-6">
