@@ -159,9 +159,10 @@
         <div class="col-lg-8">
           <h2 class="section-title">Why Choose Us</h2>
           <p class="fs-5">
-            boboplace is one of the largest and most advantages Metasearch hotels in the world. The goal of boboplace is
-            to make it easier to find the ideal hotel, because the site compares prices and reviews of hotels all over the
-            world.
+            Choose us for your hotel and tourism needs because we offer a wide range of options, competitive prices, and
+            exceptional customer service. Our user-friendly website makes it easy to find and book the perfect hotel for
+            your trip. Plus, our team of experts is available to assist you with any questions or concerns you may have.
+            Trust us to make your travel planning experience smooth and enjoyable.
           </p>
 
           <div class="row my-5">
