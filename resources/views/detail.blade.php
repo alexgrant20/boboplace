@@ -125,7 +125,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('booking.store') }}" method="POST">
+            <form action="{{ route('booking.store') }}" method="POST" id="bookingForm">
               @csrf
               <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
               <div class="row gx-2 gy-3">
@@ -137,9 +137,13 @@
                   <label class="form-label" for="total_adult">Total Adult</label>
                   <input type="text" name="total_adult" id="total_adult" class="form-control">
                 </div>
-                <div class="col-12">
-                  <label class="form-label" for="datetimes">Check in - Check out</label>
-                  <input type="text" name="datetimes" class="form-control" />
+                <div class="col-md-6">
+                  <label class="form-label" for="check_in">Check in </label>
+                  <input type="text" name="check_in" class="form-control datetimes" id="check_in" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="check_out">Check out</label>
+                  <input type="text" name="check_out" class="form-control datetimes" id="check_out" />
                 </div>
               </div>
               <div class="text-end mt-3">
@@ -152,10 +156,26 @@
     </div>
   @endsection
 
-  @section('js-head')
+
+  @section('js-foot')
+    {!! JsValidator::formRequest('App\Http\Requests\BookTransactionRequest') !!}
     <script>
       $(function() {
-        $('input[name="datetimes"]').daterangepicker();
+        $('.datetimes').daterangepicker({
+          autoUpdateInput: false,
+          singleDatePicker: true,
+          locale: {
+            cancelLabel: 'Clear'
+          }
+        });
+
+        $('.datetimes').on('apply.daterangepicker', function(ev, picker) {
+          $(this).val(picker.startDate.format('MM/DD/YYYY'));
+        });
+
+        $('.datetimes').on('cancel.daterangepicker', function(ev, picker) {
+          $(this).val('');
+        });
       });
     </script>
   @endsection

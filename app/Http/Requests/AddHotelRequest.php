@@ -14,8 +14,6 @@ class AddHotelRequest extends FormRequest
   public function rules()
   {
     return [
-      // 'image' => 'required|image',
-      // 'image.*' => 'required|image|mimes:png,jpg,jpeg',
       'name' => 'required|between:5,100',
       'city' => 'required',
       'rating' => 'required|integer',

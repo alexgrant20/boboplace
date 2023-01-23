@@ -14,4 +14,5 @@ How to run app?
 
 -  composer install
 -  php artisan migrate:fresh --seed
+-  php artisan vendor:publish --provider="Proengsoft\JsValidation\JsValidationServiceProvider"
 -  php artisan serve
