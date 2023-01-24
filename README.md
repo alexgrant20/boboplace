@@ -24,6 +24,8 @@ git clone https://github.com/alexgrant20/boboplace.git
 2. Setup Laravel & install npm dependencies
 ```sh
 composer install
+```
+```sh
 npm install
 ```
 3. Copy .env file and fill the credentials as below
