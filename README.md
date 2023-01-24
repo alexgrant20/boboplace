@@ -41,16 +41,19 @@ cp .env.example .env
  ```sh
 php artisan migrate:fresh --seed
 ```
-
 5. Run Vendor
 ```sh
 php artisan vendor:publish --provider="Proengsoft\JsValidation\JsValidationServiceProvider"
 ```
-6. Generate application key
+6. Create Storage Link
+```sh
+php artisan storage:link
+```
+7. Generate application key
  ```sh
 php artisan key:generate
 ```
-7. Run app
+8. Run app
 ```sh
 php artisan serve
 ```
