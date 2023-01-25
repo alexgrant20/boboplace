@@ -20,7 +20,7 @@
                 <div class="row justify-content-center">
                   <div class="col-lg-12 mx-auto">
                     <div class="testimonial-block text-center">
-                      <img class="w-100" src="{{ asset('images/slider-1.png') }}" alt="">
+                      <img class="w-100" src="{{ asset('images/slider-1.png') }}" alt="" style="height: 500px">
                     </div>
                   </div>
                 </div>
@@ -31,7 +31,7 @@
                 <div class="row justify-content-center">
                   <div class="col-lg-12 mx-auto">
                     <div class="testimonial-block text-center">
-                      <img class="w-100" src="{{ asset('images/slider-1.png') }}" alt="">
+                      <img class="w-100" src="{{ asset('images/slider-2.png') }}" alt="" style="height: 500px">
                     </div>
                   </div>
                 </div>

@@ -44,7 +44,7 @@ Route::controller(RegisLoginController::class)->group(function () {
   Route::post('/logValid', 'logValid');
   Route::get('/register', 'register')->name('register');
   Route::post('/regValid', 'regValid');
-  Route::post('/logout', 'logout');
+  Route::post('/logout', 'logout')->name('logout');
   Route::get('account/verify/{token}', 'verifyAccount');
 
   Route::patch('/update-profile-image/{id}', 'editProfile');
@@ -65,9 +65,9 @@ Route::controller(BookingPageController::class)->middleware('auth')->name('booki
 Route::resource('hotel', HotelController::class);
 
 Route::get('/about-us', function () {
-  return view('about_us');
+  return view('app.member.about_us');
 })->name('about-us');
 
 Route::get('/profile', function () {
-  return view('profile');
+  return view('auth.profile');
 });

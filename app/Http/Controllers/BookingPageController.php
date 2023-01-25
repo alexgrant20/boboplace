@@ -114,6 +114,6 @@ class BookingPageController extends Controller
   public function history()
   {
     $bookingTransaction = Transaction::where('user_id', Auth::id())->with('hotel.file')->get();
-    return view('booking_history', compact('bookingTransaction'));
+    return view('app.member.booking.booking_history', compact('bookingTransaction'));
   }
 }

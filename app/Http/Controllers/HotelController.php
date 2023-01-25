@@ -24,7 +24,7 @@ class HotelController extends Controller
   public function show(Hotel $hotel)
   {
     $hotel->load('file', 'hotelFacility');
-    return view('detail', compact('hotel'));
+    return view('app.member.booking.detail', compact('hotel'));
   }
 
   public function index()
@@ -38,7 +38,7 @@ class HotelController extends Controller
     $facilities = Facility::all();
     $cities = City::all();
 
-    return view('admin.addhotel', compact('facilities', 'cities'));
+    return view('app.admin.addhotel', compact('facilities', 'cities'));
   }
 
   public function store(AddHotelRequest $request)
@@ -99,7 +99,7 @@ class HotelController extends Controller
       ->select('hf.facility_id')
       ->get();
 
-    return view('admin.edithotel', compact('hotel', 'path', 'cities', 'cityName', 'facilities', 'facilityHotel'))->with('success-swal', 'berhasil');
+    return view('app.admin.edithotel', compact('hotel', 'path', 'cities', 'cityName', 'facilities', 'facilityHotel'))->with('success-swal', 'berhasil');
   }
 
   public function update(UpdateHotelRequest $request, Hotel $hotel)

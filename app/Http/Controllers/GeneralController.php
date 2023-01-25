@@ -13,7 +13,7 @@ class GeneralController extends Controller
     try {
       NewsLetter::create($request->validated());
 
-      Mail::send('email.newsletter-email', ['name' => $request->name], function ($message) use ($request) {
+      Mail::send('app.email.newsletter-email', ['name' => $request->name], function ($message) use ($request) {
         $message->to($request->email);
         $message->subject('boboplace Newsletter');
       });

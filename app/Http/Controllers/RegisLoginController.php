@@ -25,7 +25,7 @@ class RegisLoginController extends Controller
 
   public function index()
   {
-    return view('login');
+    return view('auth.login');
   }
 
   public function logValid(Request $request)
@@ -54,7 +54,7 @@ class RegisLoginController extends Controller
 
   public function register()
   {
-    return view('register');
+    return view('auth.register');
   }
 
   public function regValid(RegisterRequest $request)
@@ -71,7 +71,7 @@ class RegisLoginController extends Controller
       'token' => $token
     ]);
 
-    Mail::send('emailVerificationEmail', ['token' => $token], function ($message) use ($request) {
+    Mail::send('app.email.emailVerificationEmail', ['token' => $token], function ($message) use ($request) {
       $message->to($request->email);
       $message->subject('boboPlace Email Verification');
     });
@@ -137,7 +137,7 @@ class RegisLoginController extends Controller
   public function edit($id)
   {
     $user = User::where('id', 'like', Auth::id())->first();
-    return view('profile', compact('user'));
+    return view('auth.profile', compact('user'));
   }
 
   public function update(Request $request)
